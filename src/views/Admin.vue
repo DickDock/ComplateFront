@@ -1,12 +1,12 @@
 <template>
   <span class="text-4xl text-center block">Admin页面</span>
-  <div class="p-4">
-    <el-card class="box-card mt-4 mx-auto" shadow="hover">
-      <div class="text item">
-        <el-button type="primary" @click="goIndex">返回首页</el-button>
-      </div>
-    </el-card>
-  </div>
+
+  <el-card class="box-card mt-4 mx-auto" shadow="hover">
+    <div class="text item">
+      <el-button type="primary" @click="goIndex">返回首页</el-button>
+    </div>
+  </el-card>
+
 </template>
 
 <script lang="ts">

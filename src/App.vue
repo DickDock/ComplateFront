@@ -1,5 +1,5 @@
 <template>
-  <div class="text-4xl text-center">毕设工程</div>
+  <div class="text-4xl text-center mb-2">毕设工程</div>
   <el-container>
 
     <el-header class="bg-slate-300 p-12"></el-header>
@@ -13,7 +13,7 @@
 
 </template>
 
-<style>
+<style scoped>
 
 </style>
 
