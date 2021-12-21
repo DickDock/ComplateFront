@@ -44,9 +44,9 @@
       <router-view/>
     </el-main>
 
-    <el-footer class="bg-gradient-to-r from-purple-500 to-pink-500">
+    <el-footer class="">
       <el-row class="h-full" justify="center" align="middle">
-        <span class="text-center text-2xl">LS毕设项目</span>
+        <span class="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">LS毕设项目</span>
       </el-row>
     </el-footer>
   </el-container>
