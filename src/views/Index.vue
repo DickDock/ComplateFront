@@ -3,7 +3,7 @@
     <span class="text-4xl text-center block">主页面</span>
     <el-card class="box-card mt-4 mx-auto" shadow="hover">
       <div class="text item">
-        <el-button type="primary" @click="goAdmin" class="bg-blue-400 font-mono">访问其他页面</el-button>
+        <el-button type="primary" @click="goAdmin" class="bg-blue-400 font-mono">访问后台页面</el-button>
       </div>
     </el-card>
   </div>
