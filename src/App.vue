@@ -72,5 +72,9 @@ export default defineComponent({
     Star,
     Delete
   },
+  data() {
+    return {
+    }
+  },
 })
 </script>

@@ -4,7 +4,7 @@
   <div class="">
     <DemoCharts1/>
   </div>
-  
+
   <el-card class="box-card mt-4 mx-auto" shadow="hover">
     <div class="text item">
       <el-button type="primary" @click="goIndex" class="bg-blue-400">返回首页</el-button>
@@ -19,6 +19,11 @@ import {defineComponent} from "vue";
 export default defineComponent({
   name: "Admin",
   components: {},
+  data(){
+    return {
+
+    }
+  },
   methods: {
     goIndex() {
       this.$router.push('/')
