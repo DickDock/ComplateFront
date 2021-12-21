@@ -1,14 +1,59 @@
 # 毕设分支，用于毕设工程
 当前为毕设分支，本项目主要用于毕设前端开发
 
-# Vue 3 + Typescript + Vite
+# 主机安全态势监控告警系统
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 主要功能
 
-## Recommended IDE Setup
+1. Web组件日志监控分析（nginx、tomcat、MySQL等）
+2. 主机资源监控（CPU占用、负载、内存占用、硬盘占用、带宽资源）
+3. 主机流量监控（实时分析网卡流量）
+4. 互联网实时漏洞获取（CNVD等官方数据源及各种CVE）
+5. 主机漏洞扫描（扫描及生成扫描报告）
+6. 整体数据分析、清洗处理
+7. 前端直观展示主机资源及态势信息
+8. 主机安全事件处理流程
+9. 主机安全事件告警
+10. 系统用户管理、权限控制
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+## 以下模块考虑一下工作量决定是否实现：
 
-## Type Support For `.vue` Imports in TS
+1. 主机流量实时监控模块
+2. 数据分析清洗模块
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+
+
+## 项目分析
+
+目前市面上专业的主机安全产品还是比较匮乏的，并且缺少相对完善的整合平台。
+
+所以准备着手开发一款简单相对功能多点的主机安全态势系统
+
+主要用于直观高效的展示主机正在遭受的网络攻击行为并对攻击行为做出规定的响应动作
+
+同时可以对系统的一些组件（nginx、tomcat等）进行监控，及时发现异常行为
+
+也实现有对主机的漏洞进行定期扫描检测，收集整理互联网批露的风险信息
+
+同时在发现威胁信息时可以按照指定规则做出指定动作，如通知管理员，关闭服务等
+
+
+
+## 主要开发语言及框架
+
+### 开发语言
+
+1. Java
+2. Python
+3. HTML
+4. CSS
+5. JavaScript
+
+### 开发框架
+
+1. Spring
+2. Springboot
+3. Vue
+4. Element UI
+5. TailwindCSS
+6. Playwright
