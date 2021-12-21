@@ -10,27 +10,27 @@
                 <Search/>
               </el-icon>
             </el-button>
-            <el-button type="primary" :icon="Edit" circle>
+            <el-button type="primary" circle>
               <el-icon color="#409EFC" :size="20">
                 <Edit/>
               </el-icon>
             </el-button>
-            <el-button type="success" :icon="Check" circle>
+            <el-button type="success" circle>
               <el-icon color="#409EFC" :size="20">
                 <Check/>
               </el-icon>
             </el-button>
-            <el-button type="info" :icon="Message" circle>
+            <el-button type="info" circle>
               <el-icon color="#409EFC" :size="20">
                 <Message/>
               </el-icon>
             </el-button>
-            <el-button type="warning" :icon="Star" circle>
+            <el-button type="warning" circle>
               <el-icon color="#409EFC" :size="20">
                 <Star/>
               </el-icon>
             </el-button>
-            <el-button type="danger" :icon="Delete" circle>
+            <el-button type="danger" circle>
               <el-icon color="#409EFC" :size="20">
                 <Delete/>
               </el-icon>
