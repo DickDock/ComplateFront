@@ -3,7 +3,7 @@
 
   <el-card class="box-card mt-4 mx-auto" shadow="hover">
     <div class="text item">
-      <el-button type="primary" @click="goIndex">返回首页</el-button>
+      <el-button type="primary" @click="goIndex" class="bg-blue-400">返回首页</el-button>
     </div>
   </el-card>
 
