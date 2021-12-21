@@ -28,8 +28,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-#demoCharts1 {
-  width: 50%;
-  height: 500px;
-}
 </style>
