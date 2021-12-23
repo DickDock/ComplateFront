@@ -41,6 +41,12 @@
 
 ## 主要开发语言及框架
 
+# 引用资源记录
+##  TailWindCss
+https://tailwindcss.com/docs
+## ElementPlus
+https://element-plus.gitee.io/zh-CN
+
 ### 开发语言
 
 1. Java
