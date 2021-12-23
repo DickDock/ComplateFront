@@ -16,12 +16,6 @@
 9. 主机安全事件告警
 10. 系统用户管理、权限控制
 
-## 以下模块考虑一下工作量决定是否实现：
-
-1. 主机流量实时监控模块
-2. 数据分析清洗模块
-
-
 
 ## 项目分析
 
@@ -46,6 +40,8 @@
 https://tailwindcss.com/docs
 ## ElementPlus
 https://element-plus.gitee.io/zh-CN
+## 自动导入svg图插件
+https://github.com/anncwb/vite-plugin-svg-icons/blob/main/README.zh_CN.md
 
 ### 开发语言
 
