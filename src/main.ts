@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import './assets/css/app.css'
-// import VueRouter from 'vue-router'
 import router from './router'
 
-createApp(App)
-    .use(router)
-    .mount('#app')
+const app = createApp(App)
+app.config.globalProperties.$showNav = true
+app.use(router)
+app.mount('#app')
