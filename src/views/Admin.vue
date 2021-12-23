@@ -8,8 +8,13 @@
       <div class="grow">
 
         <div class="flex h-full">
-          <div class="bg-sky-300 flex-none w-28 h-full"></div>
-          <div class="bg-sky-400 grow"></div>
+          <div class="bg-sky-300 flex-none w-28 h-full">
+            <Nav/>
+          </div>
+
+          <div class="bg-sky-400 grow">
+            <router-view/>
+          </div>
         </div>
 
       </div>
@@ -27,13 +32,12 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import Nav from '../components/admin/Nav.vue'
+
 
 export default defineComponent({
   name: "Admin",
-  components: {},
-  props: {
-    showNav: Boolean
-  },
+  components: {Nav},
   data() {
     return {}
   },
