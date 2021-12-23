@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100%;">
 
-    <el-header class="py-2" v-show="$route.name!=='Admin'">
+    <el-header class="py-2" v-show="$route.meta.showNav">
       <el-row :gutter="18" justify="end">
         <el-col :span="6" class="">
           <el-row justify="end">
@@ -74,8 +74,7 @@ export default defineComponent({
   mounted() {
   },
   data() {
-    return {
-    }
+    return {}
   },
 })
 </script>

@@ -8,7 +8,7 @@
       <div class="grow">
 
         <div class="flex h-full">
-          <div class="bg-sky-300 flex-none w-28 h-full">
+          <div class="flex-none w-28 h-full">
             <Nav/>
           </div>
 
