@@ -1,11 +1,27 @@
 <template>
-  <span class="text-4xl text-center block">Admin页面</span>
-  <div class="p-4">
-    <el-card class="box-card mt-4 mx-auto" shadow="hover">
-      <div class="text item">
-        <el-button type="primary" @click="goIndex">返回首页</el-button>
+  <div class="h-full">
+    <div class="h-full flex flex-col">
+      <div class="bg-green-200 h-14 flex-none">
+        <span class="inline-block mx-auto">功能待定</span>
       </div>
-    </el-card>
+
+      <div class="grow">
+
+        <div class="flex h-full">
+          <div class="bg-sky-300 flex-none w-28 h-full"></div>
+          <div class="bg-sky-400 grow"></div>
+        </div>
+
+      </div>
+
+      <div class="">
+        <el-card class="box-card mt-4 mx-auto" shadow="hover">
+          <div class="text item">
+            <el-button type="primary" @click="goIndex" class="bg-blue-400">返回首页</el-button>
+          </div>
+        </el-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,6 +30,15 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "Admin",
+  components: {},
+  props: {
+    showNav: Boolean
+  },
+  data() {
+    return {}
+  },
+  mounted() {
+  },
   methods: {
     goIndex() {
       this.$router.push('/')
@@ -23,5 +48,4 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
 </style>
