@@ -1,11 +1,8 @@
 <template>
   <div class="pt-4">
-    <!--    <div class="text-xl grid grid-flow-row auto-rows-auto justify-items-center py-2" v-for="nav in navList">-->
-    <!--      <router-link :to="'/admin'+nav.path" class="text-neutral-600">{{ nav.title }}</router-link>-->
-    <!--    </div>-->
     <div class="grid justify-items-center">
       <el-button circle @click="switchNav" class="">
-        <el-icon :class="{'rotate-180':!isCollapse}">
+        <el-icon :class="{'rotate-180':!isCollapse}" ref="switchIcon">
           <caret-right/>
         </el-icon>
       </el-button>
@@ -26,7 +23,7 @@
       </el-menu-item>
       <el-sub-menu index="2">
         <template #title class="min-w-min">
-          <el-icon v-show="isCollapse">
+          <el-icon class="">
             <setting/>
           </el-icon>
           <span>系统设置</span>
@@ -81,10 +78,11 @@ export default defineComponent({
   setup() {
     const isCollapse = ref(true)
     const switchIcon = ref<null | HTMLElement>(null)
-    const handleOpen = (key, keyPath) => {
+    console.log('switchIcon => '+switchIcon)
+    const handleOpen = (key: any, keyPath: any) => {
       console.log(key, keyPath)
     }
-    const handleClose = (key, keyPath) => {
+    const handleClose = (key: any, keyPath: any) => {
       console.log(key, keyPath)
     }
     return {
