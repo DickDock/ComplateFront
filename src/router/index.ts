@@ -18,8 +18,8 @@ const routes = [
         },
         children: [
             {path: '', component: () => import ("../views/admin/DashBoard.vue")},
-            // {path: '/', component: () => import ("../views/admin/DashBoard.vue")},
             {path: 'system', component: () => import ("../views/admin/SystemSetting.vue")},
+            {path: 'system/status', component: () => import ("../views/admin/SystemStatus.vue")},
             {path: 'user', component: () => import ("../views/admin/UserManager.vue")},
             {path: 'log', component: () => import ("../views/admin/LogManager.vue")},
         ]
