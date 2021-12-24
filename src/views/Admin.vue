@@ -1,7 +1,7 @@
 <template>
   <div class="h-full">
     <div class="h-full flex flex-col">
-      <div class="bg-green-200 h-14 flex-none">
+      <div class="bg-green-200 h-8 flex-none" v-if="showTips">
         <span class="inline-block mx-auto">功能待定</span>
       </div>
 
@@ -19,13 +19,13 @@
 
       </div>
 
-      <div class="">
-        <el-card class="box-card mt-4 mx-auto" shadow="hover">
-          <div class="text item">
-            <el-button type="primary" @click="goIndex" class="bg-blue-400">返回首页</el-button>
-          </div>
-        </el-card>
-      </div>
+      <!--      <div class="">-->
+      <!--        <el-card class="box-card mt-4 mx-auto" shadow="hover">-->
+      <!--          <div class="text item">-->
+      <!--            <el-button type="primary" @click="goIndex" class="bg-blue-400">返回首页</el-button>-->
+      <!--          </div>-->
+      <!--        </el-card>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -39,7 +39,9 @@ export default defineComponent({
   name: "Admin",
   components: {Nav},
   data() {
-    return {}
+    return {
+      showTips: false
+    }
   },
   mounted() {
   },
