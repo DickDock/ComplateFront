@@ -12,7 +12,7 @@
             <Nav/>
           </div>
 
-          <div class="bg-sky-400 grow">
+          <div class="grow">
             <router-view/>
           </div>
         </div>
