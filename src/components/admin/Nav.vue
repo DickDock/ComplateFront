@@ -3,52 +3,53 @@
     <!--    <div class="text-xl grid grid-flow-row auto-rows-auto justify-items-center py-2" v-for="nav in navList">-->
     <!--      <router-link :to="'/admin'+nav.path" class="text-neutral-600">{{ nav.title }}</router-link>-->
     <!--    </div>-->
-
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-      <el-radio-button :label="false">开</el-radio-button>
-      <el-radio-button :label="true">收</el-radio-button>
-    </el-radio-group>
+    <div class="grid justify-items-center">
+      <el-button circle @click="switchNav" class="">
+        <el-icon :class="{'rotate-180':!isCollapse}">
+          <caret-right/>
+        </el-icon>
+      </el-button>
+    </div>
     <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
+        default-active="/admin"
+        class=""
         :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
+        :router="true"
     >
-      <el-sub-menu index="1">
-        <template #title>
-          <span>导航栏一</span>
+      <el-menu-item index="/admin">
+        <el-icon>
+          <grid/>
+        </el-icon>
+        <template #title>系统概览</template>
+      </el-menu-item>
+      <el-sub-menu index="2">
+        <template #title class="min-w-min">
+          <el-icon v-show="isCollapse">
+            <setting/>
+          </el-icon>
+          <span>系统设置</span>
         </template>
         <el-menu-item-group>
-          <template #title><span>组一</span></template>
-          <el-menu-item index="1-1">项目一</el-menu-item>
-          <el-menu-item index="1-2">项目二</el-menu-item>
+          <template #title><span>基础设置</span></template>
+          <el-menu-item index="/admin/system">系统信息</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="第二组">
-          <el-menu-item index="1-3">项目三</el-menu-item>
+        <el-menu-item-group title="系统状态">
+          <el-menu-item index="/admin/system/status">状态监控</el-menu-item>
         </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title><span>项目四</span></template>
-          <el-menu-item index="1-4-1">项目一</el-menu-item>
-        </el-sub-menu>
       </el-sub-menu>
-      <el-menu-item index="2">
+      <el-menu-item index="/admin/user">
         <el-icon>
-          <icon-menu/>
+          <avatar/>
         </el-icon>
-        <template #title>导航栏二</template>
+        <template #title>用户管理</template>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <el-icon>
-          <document/>
-        </el-icon>
-        <template #title>导航栏三</template>
-      </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="/admin/log">
         <el-icon>
           <setting/>
         </el-icon>
-        <template #title>导航栏四</template>
+        <template #title>日志中心</template>
       </el-menu-item>
     </el-menu>
   </div>
@@ -61,6 +62,9 @@ import {
   Document,
   Menu as IconMenu,
   Setting,
+  Grid,
+  Avatar,
+  CaretRight,
 } from '@element-plus/icons-vue'
 
 export default defineComponent({
@@ -70,9 +74,13 @@ export default defineComponent({
     Document,
     Setting,
     IconMenu,
+    Grid,
+    Avatar,
+    CaretRight,
   },
   setup() {
     const isCollapse = ref(true)
+    const switchIcon = ref<null | HTMLElement>(null)
     const handleOpen = (key, keyPath) => {
       console.log(key, keyPath)
     }
@@ -83,17 +91,16 @@ export default defineComponent({
       isCollapse,
       handleOpen,
       handleClose,
+      switchIcon,
+    }
+  },
+  methods: {
+    switchNav() {
+      this.isCollapse = !this.isCollapse
     }
   },
   data() {
-    return {
-      navList: [
-        {title: '系统概览', path: '/'},
-        {title: '系统管理', path: '/system'},
-        {title: '用户管理', path: '/user'},
-        {title: '日志管理', path: '/log'},
-      ]
-    }
+    return {}
   }
 })
 </script>
