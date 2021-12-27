@@ -13,7 +13,15 @@
             </div>
           </div>
         </div>
-        <div class="p-24 bg-white rounded-3xl opacity-20"></div>
+        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
+          <div class="bg-transparent">
+            <div class="">
+              <span class="text-xl text-white">历史告警数 >></span>
+            </div>
+            
+            <div class=""></div>
+          </div>
+        </div>
         <div class="p-24 bg-white rounded-3xl opacity-20"></div>
       </div>
     </div>

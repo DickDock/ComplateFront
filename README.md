@@ -44,6 +44,8 @@ https://tailwindcss.com/docs
 https://element-plus.gitee.io/zh-CN
 ## 自动导入svg图插件
 https://github.com/anncwb/vite-plugin-svg-icons/blob/main/README.zh_CN.md
+## Echarts图表
+https://echarts.apache.org/examples/zh/index.html#chart-type-bar
 
 ### 开发语言
 
