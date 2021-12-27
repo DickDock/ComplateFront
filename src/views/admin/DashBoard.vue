@@ -13,8 +13,8 @@
             </div>
           </div>
         </div>
-        <div class="p-24 bg-white h-56 rounded-3xl opacity-20"></div>
-        <div class="p-24 bg-white h-56 rounded-3xl opacity-20"></div>
+        <div class="p-24 bg-white rounded-3xl opacity-20"></div>
+        <div class="p-24 bg-white rounded-3xl opacity-20"></div>
       </div>
     </div>
   </div>
