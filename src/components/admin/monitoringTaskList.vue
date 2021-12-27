@@ -49,8 +49,7 @@ el-table, el-table tr, el-table td, el-table th {
   background-color: transparent;
   border: 0;
 }
-  /*overflow-x: hidden;*/
-/*overflow-y: hidden;*/
+
 ::-webkit-scrollbar{width:0;}
 
 </style>
