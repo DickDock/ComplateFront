@@ -18,8 +18,10 @@
             <div class="">
               <span class="text-xl text-white">历史告警数 >></span>
             </div>
-            
-            <div class=""></div>
+
+            <div class="">
+              <HistoricalAlarm/>
+            </div>
           </div>
         </div>
         <div class="p-24 bg-white rounded-3xl opacity-20"></div>
@@ -30,10 +32,11 @@
 
 <script>
 import monitoringTaskList from "../../components/admin/monitoringTaskList.vue";
+import HistoricalAlarm from "../../components/admin/HistoricalAlarm.vue";
 
 export default {
   name: "DashBoard",
-  components: {monitoringTaskList},
+  components: {HistoricalAlarm, monitoringTaskList},
   setup() {
   }
 }
