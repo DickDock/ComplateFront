@@ -36,6 +36,8 @@
 ## 主要开发语言及框架
 
 # 引用资源记录
+## Vue3
+https://v3.cn.vuejs.org/guide/introduction.html
 ##  TailWindCss
 https://tailwindcss.com/docs
 ## ElementPlus
