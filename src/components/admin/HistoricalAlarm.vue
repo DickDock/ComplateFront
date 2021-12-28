@@ -36,6 +36,12 @@ export default defineComponent({
         yAxis: {
           type: 'value'
         },
+        grid: {
+          top: "20px",
+          left: "30px",
+          right: "20px",
+          bottom: "30px"
+        },
         series: [
           {
             data: [20, 132, 101, 134, 290, 330, 420],

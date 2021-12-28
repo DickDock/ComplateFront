@@ -24,7 +24,16 @@
             </div>
           </div>
         </div>
-        <div class="p-24 bg-white rounded-3xl opacity-20"></div>
+        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
+          <div class="bg-transparent">
+            <div class="">
+              <span class="text-xl text-white">漏洞级别分类 >></span>
+            </div>
+            <div class="">
+              <VulnInfo/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -33,10 +42,11 @@
 <script>
 import monitoringTaskList from "../../components/admin/monitoringTaskList.vue";
 import HistoricalAlarm from "../../components/admin/HistoricalAlarm.vue";
+import VulnInfo from "../../components/admin/VulnInfo.vue";
 
 export default {
   name: "DashBoard",
-  components: {HistoricalAlarm, monitoringTaskList},
+  components: {VulnInfo, HistoricalAlarm, monitoringTaskList},
   setup() {
   }
 }
