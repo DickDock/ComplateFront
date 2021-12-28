@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import monitoringTaskList from "../../components/admin/monitoringTaskList.vue";
-import HistoricalAlarm from "../../components/admin/HistoricalAlarm.vue";
-import VulnInfo from "../../components/admin/VulnInfo.vue";
+import monitoringTaskList from "../../components/admin/dashboard/monitoringTaskList.vue";
+import HistoricalAlarm from "../../components/admin/dashboard/HistoricalAlarm.vue";
+import VulnInfo from "../../components/admin/dashboard/VulnInfo.vue";
 
 export default {
   name: "DashBoard",
