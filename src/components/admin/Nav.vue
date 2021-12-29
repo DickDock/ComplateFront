@@ -9,7 +9,6 @@
     </div>
     <el-menu
         default-active="/admin"
-        class=""
         :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
@@ -78,7 +77,6 @@ export default defineComponent({
   setup() {
     const isCollapse = ref(true)
     const switchIcon = ref<null | HTMLElement>(null)
-    console.log('switchIcon => '+switchIcon)
     const handleOpen = (key: any, keyPath: any) => {
       console.log(key, keyPath)
     }
