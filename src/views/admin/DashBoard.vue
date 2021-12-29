@@ -13,19 +13,40 @@
             </div>
           </div>
         </div>
-        <div class="p-24 bg-white h-56 rounded-3xl opacity-20"></div>
-        <div class="p-24 bg-white h-56 rounded-3xl opacity-20"></div>
+        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
+          <div class="bg-transparent">
+            <div class="">
+              <span class="text-xl text-white">历史告警数 >></span>
+            </div>
+
+            <div class="">
+              <HistoricalAlarm/>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
+          <div class="bg-transparent">
+            <div class="">
+              <span class="text-xl text-white">漏洞级别分类 >></span>
+            </div>
+            <div class="">
+              <VulnInfo/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import monitoringTaskList from "../../components/admin/monitoringTaskList.vue";
+import monitoringTaskList from "../../components/admin/dashboard/monitoringTaskList.vue";
+import HistoricalAlarm from "../../components/admin/dashboard/HistoricalAlarm.vue";
+import VulnInfo from "../../components/admin/dashboard/VulnInfo.vue";
 
 export default {
   name: "DashBoard",
-  components: {monitoringTaskList},
+  components: {VulnInfo, HistoricalAlarm, monitoringTaskList},
   setup() {
   }
 }
