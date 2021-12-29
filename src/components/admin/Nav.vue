@@ -8,8 +8,7 @@
       </el-button>
     </div>
     <el-menu
-        default-active="/admin"
-        class=""
+        :default-active="$route.path"
         :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
@@ -78,12 +77,11 @@ export default defineComponent({
   setup() {
     const isCollapse = ref(true)
     const switchIcon = ref<null | HTMLElement>(null)
-    console.log('switchIcon => '+switchIcon)
     const handleOpen = (key: any, keyPath: any) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     const handleClose = (key: any, keyPath: any) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     return {
       isCollapse,

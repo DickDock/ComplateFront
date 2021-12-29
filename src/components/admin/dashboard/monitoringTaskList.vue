@@ -2,17 +2,17 @@
   <div class="p-2 max-h-48 overflow-auto">
     <div class="text-white border p-2">
       <div class="grid grid-cols-5 gap-4">
-        <div class="col-span-2">任务名称</div>
-        <div class="">任务状态</div>
-        <div class="col-span-2">上次运行</div>
+        <div class="col-span-2 truncate">任务名称</div>
+        <div class="truncate">任务状态</div>
+        <div class="col-span-2 truncate">上次运行</div>
       </div>
 
       <div class="grid grid-cols-5 gap-4" v-for="data in tableData">
-        <div class="col-span-2">{{ data.name }}</div>
+        <div class="col-span-2 truncate">{{ data.name }}</div>
         <div class="">
           <el-switch v-model="data.status" active-color="#13ce66" inactive-color="#ff4949"/>
         </div>
-        <div class="col-span-2">{{ data.lastDate }}</div>
+        <div class="col-span-2 truncate">{{ data.lastDate }}</div>
       </div>
     </div>
   </div>

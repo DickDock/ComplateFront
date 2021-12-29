@@ -20,7 +20,12 @@ const routes = [
             {path: '', component: () => import ("../views/admin/DashBoard.vue")},
             {path: 'system', component: () => import ("../views/admin/SystemSetting.vue")},
             {path: 'system/status', component: () => import ("../views/admin/SystemStatus.vue")},
-            {path: 'user', component: () => import ("../views/admin/UserManager.vue")},
+            {
+                path: 'user', component: () => import ("../views/admin/UserManager.vue"),
+                children: [
+                    {path: '',component: () => import ('../components/admin/usermanager/UserList.vue')}
+                ]
+            },
             {path: 'log', component: () => import ("../views/admin/LogManager.vue")},
         ]
     },
