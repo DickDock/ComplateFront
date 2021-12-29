@@ -78,10 +78,10 @@ export default defineComponent({
     const isCollapse = ref(true)
     const switchIcon = ref<null | HTMLElement>(null)
     const handleOpen = (key: any, keyPath: any) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     const handleClose = (key: any, keyPath: any) => {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
     return {
       isCollapse,
