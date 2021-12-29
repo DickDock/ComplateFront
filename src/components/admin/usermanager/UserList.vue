@@ -45,14 +45,14 @@ export default {
     }
   },
   methods: {
-    handleEdit(index, row) {
+    handleEdit(index: any, row: any) {
       console.log(index, row)
     },
-    handleDelete(index, row) {
+    handleDelete(index: any, row: any) {
       console.log(index, row)
     },
-    delUserStyle({ row, rowIndex }) {
-      if (row.status == false){
+    delUserStyle({row}: any) {
+      if (row.status == false) {
         return 'text-red-400'
       } else {
         return ''

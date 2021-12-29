@@ -26,7 +26,7 @@ export default defineComponent({
   setup() {
     const dialogVisible = ref(false)
 
-    const handleClose = (done) => {
+    const handleClose = (done: () => void) => {
       ElMessageBox.confirm('Are you sure to close this dialog?')
           .then(() => {
             done()
