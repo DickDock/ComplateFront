@@ -8,7 +8,7 @@
       </el-button>
     </div>
     <el-menu
-        default-active="/admin"
+        :default-active="$route.path"
         :collapse="isCollapse"
         @open="handleOpen"
         @close="handleClose"
