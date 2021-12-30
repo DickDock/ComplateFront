@@ -71,6 +71,8 @@ export default defineComponent({
     Star,
     Delete
   },
+  setup() {
+  },
   mounted() {
   },
   data() {

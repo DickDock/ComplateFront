@@ -5,11 +5,11 @@
         style="width: 100%"
         :row-class-name="delUserStyle"
     >
-      <el-table-column prop="name" label="用户名" width="100"/>
-      <el-table-column prop="date" label="注册日期" width="100"/>
-      <el-table-column prop="address" label="邮箱" width="150"/>
-      <el-table-column prop="balance" label="余额" width="150"/>
-      <el-table-column label="状态" width="50">
+      <el-table-column prop="name" label="用户名"/>
+      <el-table-column prop="date" label="注册日期"/>
+      <el-table-column prop="address" label="邮箱"/>
+      <el-table-column prop="balance" label="余额"/>
+      <el-table-column label="状态">
         <template #default="scope">
           <el-switch v-model="scope.row.status" active-color="#13ce66" inactive-color="#ff4949"/>
         </template>
