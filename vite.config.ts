@@ -1,20 +1,23 @@
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import ElementPlus from 'unplugin-element-plus/vite'
 import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 
 
 // https://vitejs.dev/config/
 // @ts-ignore
-// @ts-ignore
-// @ts-ignore
-// @ts-ignore
 export default defineConfig({
     plugins: [
         vue(),
         AutoImport({
             resolvers: [ElementPlusResolver()],
+        }),
+        ElementPlus({
+            // @ts-ignore
+            importStyle: 'sass',
+            useSource: true
         }),
         Components({
             // 要搜索组件的目录的相对路径.

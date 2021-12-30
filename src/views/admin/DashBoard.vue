@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import monitoringTaskList from "../../components/admin/dashboard/monitoringTaskList.vue";
-import HistoricalAlarm from "../../components/admin/dashboard/HistoricalAlarm.vue";
-import VulnInfo from "../../components/admin/dashboard/VulnInfo.vue";
+// import monitoringTaskList from "../../components/admin/dashboard/monitoringTaskList.vue";
+// import HistoricalAlarm from "../../components/admin/dashboard/HistoricalAlarm.vue";
+// import VulnInfo from "../../components/admin/dashboard/VulnInfo.vue";
 
 export default {
   name: "DashBoard",
-  components: {VulnInfo, HistoricalAlarm, monitoringTaskList},
+  components: {},
   setup() {
   }
 }
