@@ -34,13 +34,13 @@ export default {
   data() {
     return {
       tableData: [
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: false, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: 123},
-        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: false, balance: 123},
+        {id: 1, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 2, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 3, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 4, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: false, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 5, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 6, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: true, balance: Math.floor((Math.random()*1000)+1)},
+        {id: 7, date: '2016-05-03', name: 'Tom', address: 'test@qq.com', status: false, balance: Math.floor((Math.random()*1000)+1)},
       ],
     }
   },
@@ -50,6 +50,7 @@ export default {
     },
     handleDelete(index: any, row: any) {
       console.log(index, row)
+      console.log('ID => ' + row.id + ' Index => ' + index)
     },
     delUserStyle({row}: any) {
       if (row.status == false) {
