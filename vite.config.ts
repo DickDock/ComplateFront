@@ -4,7 +4,12 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 
+
 // https://vitejs.dev/config/
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export default defineConfig({
     plugins: [
         vue(),
@@ -12,32 +17,23 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         }),
         Components({
-            resolvers: [ElementPlusResolver()],
-        }),
-        Components({
-            // relative paths to the directory to search for components.
-            // 要搜索组件的目录的相对路径
-            dirs: ['src/components'],
+            // 要搜索组件的目录的相对路径.
+            dirs: ['./src/components', './src/views'],
 
-            // valid file extensions for components.
             // 组件的有效文件扩展名。
             extensions: ['vue'],
 
-            // search for subdirectories
             // 搜索子目录
             deep: true,
 
-            // resolvers for custom components
             // 自定义组件的解析器
-            resolvers: [],
+            resolvers: [ElementPlusResolver()],
 
-            // generate `components.d.ts` global declarations,
-            // also accepts a path for custom filename
+
             // 生成 `components.d.ts` 全局声明，
             // 也接受自定义文件名的路径
-            dts: false,
+            dts: true,
 
-            // Allow subdirectories as namespace prefix for components.
             // 允许子目录作为组件的命名空间前缀。
             directoryAsNamespace: false,
 
@@ -59,6 +55,10 @@ export default defineConfig({
             // filters for transforming targets
             include: [/.vue$/, /.vue?vue/],
             exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/],
-        })
-    ]
+        }),
+    ],
+    resolve: {
+        alias: {
+        }
+    },
 })
