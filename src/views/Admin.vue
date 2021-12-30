@@ -32,12 +32,12 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import Nav from '../components/admin/Nav.vue'
+// import Nav from '../components/admin/Nav.vue'
 
 
 export default defineComponent({
   name: "Admin",
-  components: {Nav},
+  components: {},
   data() {
     return {
       showTips: false
