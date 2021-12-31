@@ -22,9 +22,15 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import { httpBinTest } from "../utils/http/api";
 
 export default defineComponent({
   name: "Index",
+  setup() {
+    httpBinTest().then(res=>{
+      console.log(res)
+    })
+  },
   methods: {
     goAdmin() {
       this.$router.push('/admin')
