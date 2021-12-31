@@ -22,14 +22,14 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import { mokeGet } from "../utils/http/api";
+import { httpBinTest } from "../utils/http/api";
 
 export default defineComponent({
   name: "Index",
   setup() {
-    // mokeGet().then(res=>{
-    //   console.log(res)
-    // })
+    httpBinTest().then(res=>{
+      console.log(res)
+    })
   },
   methods: {
     goAdmin() {
