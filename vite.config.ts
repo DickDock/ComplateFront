@@ -1,43 +1,42 @@
-import {defineConfig} from 'vite'
+import {defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import ElementPlus from 'unplugin-element-plus/vite'
 import Components from 'unplugin-vue-components/vite'
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 
+
 // https://vitejs.dev/config/
+// @ts-ignore
 export default defineConfig({
     plugins: [
         vue(),
         AutoImport({
             resolvers: [ElementPlusResolver()],
         }),
-        Components({
-            resolvers: [ElementPlusResolver()],
+        ElementPlus({
+            // @ts-ignore
+            importStyle: 'sass',
+            useSource: true
         }),
         Components({
-            // relative paths to the directory to search for components.
-            // 要搜索组件的目录的相对路径
-            dirs: ['src/components'],
+            // 要搜索组件的目录的相对路径.
+            dirs: ['./src/components', './src/views'],
 
-            // valid file extensions for components.
             // 组件的有效文件扩展名。
             extensions: ['vue'],
 
-            // search for subdirectories
             // 搜索子目录
             deep: true,
 
-            // resolvers for custom components
             // 自定义组件的解析器
-            resolvers: [],
+            resolvers: [ElementPlusResolver()],
 
-            // generate `components.d.ts` global declarations,
-            // also accepts a path for custom filename
+
             // 生成 `components.d.ts` 全局声明，
             // 也接受自定义文件名的路径
-            dts: false,
+            dts: true,
 
-            // Allow subdirectories as namespace prefix for components.
             // 允许子目录作为组件的命名空间前缀。
             directoryAsNamespace: false,
 
@@ -59,6 +58,41 @@ export default defineConfig({
             // filters for transforming targets
             include: [/.vue$/, /.vue?vue/],
             exclude: [/[\/]node_modules[\/]/, /[\/].git[\/]/, /[\/].nuxt[\/]/],
-        })
-    ]
+        }),
+    ],
+    resolve: {
+        alias: {}
+    },
+    server: {
+        proxy: {
+            //这里是通过请求/api 来转发到 https://api.pingping6.com/
+            //假如你要请求https://api.*.com/a/a
+            //那么axios的url，可以配置为 /api/a/a
+            // '/api': {
+            //     target: 'https://www.httpbin.org/get', //代理接口
+            //     changeOrigin: true,
+            //     ws: true,
+            //     secure: true,
+            // }
+            '/api': {
+                target: 'https://www.httpbin.org',
+                changeOrigin: true,
+                // ws: true,
+                rewrite: path => path.replace(/^\/api/, '')
+            }
+        }
+    },
+    build: {
+        chunkSizeWarningLimit:1500,
+        rollupOptions: {
+            output:{
+                manualChunks(id) {
+                    // @ts-ignore
+                    if (id.includes('node_modules')) {
+                        return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                    }
+                }
+            }
+        }
+    }
 })
