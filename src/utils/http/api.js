@@ -3,7 +3,7 @@ import axios from "./request"
 //get
 export const mokeGet = (data) => {
     return axios({
-        url: "/",
+        url: "/api",
         method: "get",
         data,
         config: {
@@ -17,8 +17,23 @@ export const mokeGet = (data) => {
 //post
 export const mokePost = (data) => {
     return axios({
-        url: "/",
+        url: "/api",
         method: "post",
+        data,
+        config: {
+            headers: {
+                'Request-Type': 'wechat'
+            },
+            timeout: 10000
+        }
+    })
+}
+
+// https://www.httpbin.org
+export const httpBinTest = (data) => {
+    return axios({
+        url: "/api/get",
+        method: "get",
         data,
         config: {
             headers: {
