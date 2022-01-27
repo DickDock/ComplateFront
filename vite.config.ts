@@ -75,7 +75,8 @@ export default defineConfig({
             //     secure: true,
             // }
             '/api': {
-                target: 'https://www.httpbin.org',
+                // target: 'https://www.httpbin.org',
+                target: 'http://localhost',
                 changeOrigin: true,
                 // ws: true,
                 rewrite: path => path.replace(/^\/api/, '')

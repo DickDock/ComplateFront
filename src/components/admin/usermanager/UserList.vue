@@ -16,7 +16,7 @@
       </el-table-column>
       <el-table-column label="操作">
         <template #header>
-          <el-input v-model="search" size="mini" placeholder="搜索用户名" />
+          <el-input v-model="search" size="mini" placeholder="搜索用户名"/>
         </template>
         <template #default="scope">
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">修改</el-button>
@@ -32,7 +32,8 @@
 
 export default {
   name: "UserList",
-  setup() {
+  mounted() {
+    this.getAllUsers()
   },
   data() {
     return {
@@ -112,6 +113,9 @@ export default {
         return ''
       }
     },
+
+    getAllUsers() {
+    }
   },
 }
 </script>
