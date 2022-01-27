@@ -29,6 +29,8 @@
 </template>
 
 <script lang="ts">
+// @ts-ignore
+import {getUserList} from "@/script/api/users";
 
 export default {
   name: "UserList",
@@ -115,6 +117,9 @@ export default {
     },
 
     getAllUsers() {
+      getUserList().then(res => {
+        console.log(res);
+      })
     }
   },
 }
