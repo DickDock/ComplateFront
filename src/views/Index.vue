@@ -22,10 +22,17 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+// @ts-ignore
+import {getUserList} from "@/script/api/users";
 
 export default defineComponent({
   name: "Index",
   setup() {
+  },
+  mounted() {
+    getUserList().then(res => {
+      console.log(res);
+    })
   },
   methods: {
     goAdmin() {
