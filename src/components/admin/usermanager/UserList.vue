@@ -5,10 +5,9 @@
         style="width: 100%"
         :row-class-name="delUserStyle"
     >
-      <el-table-column prop="name" label="用户名"/>
+      <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="date" label="注册日期" sortable/>
       <el-table-column prop="address" label="邮箱"/>
-      <el-table-column prop="balance" label="余额" sortable/>
       <el-table-column label="状态">
         <template #default="scope">
           <el-switch v-model="scope.row.status" active-color="#13ce66" inactive-color="#ff4949"/>
@@ -39,64 +38,7 @@ export default {
   },
   data() {
     return {
-      tableData: [
-        {
-          id: 1,
-          date: '2016-05-03',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: true,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 2,
-          date: '2016-05-04',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: true,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 3,
-          date: '2016-05-05',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: true,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 4,
-          date: '2016-05-06',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: false,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 5,
-          date: '2016-06-03',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: true,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 6,
-          date: '2016-01-03',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: true,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-        {
-          id: 7,
-          date: '2016-02-03',
-          name: 'Tom',
-          address: 'test@qq.com',
-          status: false,
-          balance: Math.floor((Math.random() * 1000) + 1)
-        },
-      ],
+      tableData: [],
       search: '',
     }
   },
@@ -118,7 +60,7 @@ export default {
 
     getAllUsers() {
       getUserList().then(res => {
-        console.log(res.data);
+        console.log(res);
       }).catch(err => {
         console.log(err)
       })
