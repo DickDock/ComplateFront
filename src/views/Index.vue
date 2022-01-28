@@ -22,12 +22,13 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-// @ts-ignore
 
 export default defineComponent({
   name: "Index",
-  setup() {},
-  mounted() {},
+  setup() {
+  },
+  mounted() {
+  },
   methods: {
     goAdmin() {
       this.$router.push('/admin')
