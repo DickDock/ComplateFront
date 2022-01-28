@@ -10,6 +10,7 @@
       <el-table-column label="状态">
         <template #default="scope">
           <el-switch v-model="scope.row.status"
+                     @change="switchChange(scope.row)"
                      active-color="#13ce66"
                      inactive-color="#ff4949"/>
         </template>
@@ -25,6 +26,7 @@
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">修改</el-button>
           <el-popconfirm
               confirm-button-text="确定"
+              confirmButtonType="text"
               cancel-button-text="取消"
               title="确认删除该用户吗"
               @confirm="handleDelete(scope.$index, scope.row)">
@@ -77,6 +79,7 @@
 import {userRequest} from "@/script/api/users/index";
 import {ElMessage} from 'element-plus'
 
+
 export default {
   name: "UserList",
   mounted() {
@@ -96,8 +99,18 @@ export default {
       this.editTableData = row
     },
     handleDelete(index: any, row: any) {
-      console.log(index, row)
-      console.log('ID => ' + row.id + ' Index => ' + index)
+      userRequest.delUser(row)
+          .then((res) => {
+            if (res.status == true) {
+              this.tableData.splice(index, 1)
+              ElMessage.success('用户删除成功')
+            } else {
+              ElMessage.error('用户删除失败')
+            }
+          })
+          .catch((err) => {
+            ElMessage.error(err)
+          })
     },
     delUserStyle({row}: any) {
       if (row.status == false) {
@@ -131,7 +144,20 @@ export default {
         ElMessage.info('取消修改')
       }
     },
-    deleteUser() {
+    switchChange(data) {
+      userRequest.updateUser(data)
+          .then((res) => {
+            if (res.status == true) {
+              ElMessage.success('修改成功')
+            } else {
+              ElMessage.error('修改失败')
+              location.reload()
+            }
+          })
+          .catch((err) => {
+            ElMessage.error('修改失败')
+            location.reload()
+          })
     }
   },
 }
