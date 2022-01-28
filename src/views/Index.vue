@@ -32,7 +32,7 @@ export default defineComponent({
   mounted() {
     getUserList().then(res => {
       console.log(res);
-    })
+    });
   },
   methods: {
     goAdmin() {
