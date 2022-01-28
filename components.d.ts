@@ -9,6 +9,7 @@ declare module 'vue' {
     DashBoard: typeof import('./src/views/admin/DashBoard.vue')['default']
     DemoCharts1: typeof import('./src/components/DemoCharts1.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']
