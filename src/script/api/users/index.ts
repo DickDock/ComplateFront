@@ -1,9 +1,27 @@
 // @ts-ignore
 import http from "@/script/utils/http";
 
-export const getUserList = () =>{
-    return http.request({
-        url: 'api/users',
-        method: 'GET',
-    })
+export class userRequest {
+    static getUserList() {
+        return http.request({
+            url: 'api/users',
+            method: 'GET',
+        })
+    }
+
+    static updateUser(data: any) {
+        return http.request({
+            url: 'api/users',
+            method: 'PUT',
+            data: data,
+        })
+    }
+
+    static delUser(data: any) {
+        return http.request({
+            url: 'api/users',
+            method: 'DELETE',
+            data: data,
+        })
+    }
 }
