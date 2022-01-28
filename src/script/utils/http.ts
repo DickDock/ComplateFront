@@ -110,9 +110,6 @@ class AxiosHttpRequest implements BaseType {
             // 获取错误信息
             let msg = res.data['msg'] || ""
             switch (code) {
-                case "200":
-                    msg = '请求成功'
-                    break;
                 case "401":
                     msg = '认证失败，无法访问系统资源'
                     break;
