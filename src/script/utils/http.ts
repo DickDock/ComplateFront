@@ -1,17 +1,20 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { ElMessage } from 'element-plus';
+import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
+import {ElMessage} from 'element-plus';
 
 // 接口类型和方法
-interface BaseType{
-    baseURL:string;
-    getConfigParams():any;
-    interceptors(instance:AxiosInstance, url: string | number | undefined):any;
-    request(options: AxiosRequestConfig):any;
+interface BaseType {
+    baseURL: string;
+
+    getConfigParams(): any;
+
+    interceptors(instance: AxiosInstance, url: string | number | undefined): any;
+
+    request(options: AxiosRequestConfig): any;
 }
 
 interface AxiosRequestType {
     baseURL?: string;
-    url?: string|undefined;
+    url?: string | undefined;
     data?: any;
     params?: any;
     method?: string;
@@ -24,44 +27,47 @@ interface AxiosRequestType {
 // 取消重复请求
 const CancelToken = axios.CancelToken
 // 用于存储每个请求的取消函数以及对应标识
-let sources:any = []
+let sources: any = []
 
 // 取消函数
-let removeSource = (config:any)=>{
-    for(let item in sources){
-        if(sources[item].umet === config.url+"&"+config.method){
+let removeSource = (config: any) => {
+    for (let item in sources) {
+        if (sources[item].umet === config.url + "&" + config.method) {
             sources[item].cancel('已取消重复请求，请勿重复请求')
             sources.splice(item, 1)
         }
     }
 }
 
-class AxiosHttpRequest implements BaseType{
+class AxiosHttpRequest implements BaseType {
     baseURL: string;
     timeout: number;
-    constructor(){
+
+    constructor() {
         // @ts-ignore
         this.baseURL = import.meta.env.VITE_APP_BASE_API
         this.timeout = 1500
     }
+
     // 配置参数
-    getConfigParams(){
+    getConfigParams() {
         const config = {
             baseURL: this.baseURL,
             timeout: this.timeout,
-            headers:{}
+            headers: {}
         }
         return config;
     }
+
     // 拦截设置
-    interceptors(instance:AxiosInstance, url: string | number | undefined){
+    interceptors(instance: AxiosInstance, url: string | number | undefined) {
         // 请求拦截
-        instance.interceptors.request.use((config: AxiosRequestType) =>{
+        instance.interceptors.request.use((config: AxiosRequestType) => {
             // 取消重复请求
             removeSource(config)
-            config.cancelToken = new CancelToken(c =>{
+            config.cancelToken = new CancelToken(c => {
                 // 将取消函数存起来
-                sources.push({ umet: config.url+'&'+config.method, cancel: c })
+                sources.push({umet: config.url + '&' + config.method, cancel: c})
             })
             // 添加全局的loading..
             // 请求头携带token
@@ -73,7 +79,7 @@ class AxiosHttpRequest implements BaseType{
                 for (const propName of Object.keys(config.params)) {
                     const value = config.params[propName];
                     var part = encodeURIComponent(propName) + "=";
-                    if (value !== null && typeof(value) !== "undefined") {
+                    if (value !== null && typeof (value) !== "undefined") {
                         if (typeof value === 'object') {
                             for (const key of Object.keys(value)) {
                                 let params = propName + '[' + key + ']';
@@ -90,12 +96,12 @@ class AxiosHttpRequest implements BaseType{
                 config.url = url;
             }
             return config
-        }, (error:any)=>{
+        }, (error: any) => {
             return Promise.reject(error)
         })
 
         // 响应拦截
-        instance.interceptors.response.use((res:any) =>{
+        instance.interceptors.response.use((res: any) => {
             // 取消重复请求
             removeSource(res.config)
 
@@ -104,6 +110,9 @@ class AxiosHttpRequest implements BaseType{
             // 获取错误信息
             let msg = res.data['msg'] || ""
             switch (code) {
+                case "200":
+                    msg = '请求成功'
+                    break;
                 case "401":
                     msg = '认证失败，无法访问系统资源'
                     break;
@@ -117,24 +126,23 @@ class AxiosHttpRequest implements BaseType{
                     msg = '系统未知错误，请反馈给管理员'
                     break;
                 default:
-                    return '未知错误，请联系管理员'
+                    msg = '未知错误，请联系管理员'
+                    break;
             }
-            if(code === 200){
+            if (code === 200) {
                 return Promise.resolve(res.data)
-            }else{
+            } else {
                 ElMessage.error(msg)
                 return Promise.reject(res.data)
             }
-        }, (error:any) =>{
+        }, (error: any) => {
             console.log('err' + error)
-            let { message } = error;
+            let {message} = error;
             if (message == "Network Error") {
                 message = "后端接口连接异常";
-            }
-            else if (message.includes("timeout")) {
+            } else if (message.includes("timeout")) {
                 message = "系统接口请求超时";
-            }
-            else if (message.includes("Request failed with status code")) {
+            } else if (message.includes("Request failed with status code")) {
                 message = "系统接口" + message.substr(message.length - 3) + "异常";
             }
             ElMessage.error({
@@ -150,7 +158,7 @@ class AxiosHttpRequest implements BaseType{
      * @param options axios请求参数
      * @returns 实例
      */
-    request(options: AxiosRequestConfig){
+    request(options: AxiosRequestConfig) {
         const instance = axios.create();
         options = Object.assign(this.getConfigParams(), options)
         this.interceptors(instance, options.url)

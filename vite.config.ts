@@ -83,9 +83,10 @@ export default ({command, mode}) => {
                 // 选项写法
                 '/api': {
                     // @ts-ignore
-                    target: mode === 'dev' ? loadEnv(mode, process.cwd()).VITE_APP_DEV_URL : loadEnv(mode, process.cwd()).VITE_APP_PROD_URL,
+                    // target: mode === 'dev' ? loadEnv(mode, process.cwd()).VITE_APP_DEV_URL : loadEnv(mode, process.cwd()).VITE_APP_PROD_URL,
+                    target: "http://127.0.0.1",
                     changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/api/, '')
+                    rewrite: (path) => path.replace(/^\/api/, ""),
                 }
             },
             hmr: {
