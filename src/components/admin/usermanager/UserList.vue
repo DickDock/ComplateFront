@@ -89,11 +89,12 @@
 </template>
 
 <script lang="ts">
+import {defineComponent} from 'vue'
 // @ts-ignore
 import {userRequest} from "@/script/api/users/index";
 import {ElMessage} from 'element-plus'
 
-export default {
+export default defineComponent({
   name: "UserList",
   mounted() {
     this.getAllUsers()
@@ -201,7 +202,7 @@ export default {
       this.getAllUsers()
     },
   },
-}
+})
 </script>
 
 <style>
