@@ -1,10 +1,10 @@
 <template>
   <div class="">
     <el-table
-        :data="tableData.filter((data) =>!search || data.name.toLowerCase().includes(search.toLowerCase()))"
+        :data="tableData.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
         style="width: 100%"
-        :row-class-name="delUserStyle"
-    >
+        v-loading="loading"
+        :row-class-name="delUserStyle">
       <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="registrationDate" label="注册日期" sortable/>
       <el-table-column label="状态">
@@ -71,6 +71,18 @@
 
     </el-dialog>
 
+    <div class="demo-pagination-block">
+      <el-pagination
+          v-model:currentPage="currentPage"
+          :page-sizes="[10, 20, 50, 100, 200, 500]"
+          :page-size="10"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="400"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange">
+      </el-pagination>
+    </div>
+
   </div>
 </template>
 
@@ -78,7 +90,6 @@
 // @ts-ignore
 import {userRequest} from "@/script/api/users/index";
 import {ElMessage} from 'element-plus'
-
 
 export default {
   name: "UserList",
@@ -88,9 +99,13 @@ export default {
   data() {
     return {
       tableData: [],
+      loading: true,
       editTableData: [],
       search: '',
       editDialogVisible: false,
+      currentPage: 1,
+      currentPageSize: 10,
+      totalUsers: 0,
     }
   },
   methods: {
@@ -122,9 +137,17 @@ export default {
     getAllUsers() {
       userRequest.getUserList().then(res => {
         this.tableData = res.data
+        this.loading = !this.loading
       }).catch((err) => {
         console.log("err" + err)
       })
+      userRequest.getUserByPage(this.currentPage, this.currentPageSize)
+          .then((res) => {
+            console.log(res.data)
+          })
+          .catch((err) => {
+            console.log("err" + err)
+          })
     },
     updateUserHandle(confirm: boolean) {
       this.editDialogVisible = false
@@ -158,7 +181,13 @@ export default {
             ElMessage.error('修改失败')
             location.reload()
           })
-    }
+    },
+    handleSizeChange(val: number) {
+      console.log(`${val} items per page`)
+    },
+    handleCurrentChange(val: number) {
+      console.log(`current page: ${val}`)
+    },
   },
 }
 </script>

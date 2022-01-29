@@ -14,12 +14,11 @@ export default ({command, mode}) => {
         plugins: [
             vue(),
             AutoImport({
-                resolvers: [ElementPlusResolver()],
+                resolvers: [ElementPlusResolver({
+                    importStyle: 'css',
+                })],
             }),
             ElementPlus({
-                // @ts-ignore
-                importStyle: 'sass',
-                useSource: true
             }),
             Components({
                 // 要搜索组件的目录的相对路径.
