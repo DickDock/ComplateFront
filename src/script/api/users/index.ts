@@ -4,14 +4,14 @@ import http from "@/script/utils/http";
 export class userRequest {
     static getUserList() {
         return http.request({
-            url: '/users',
+            url: 'users',
             method: 'GET',
         })
     }
 
     static updateUser(data: any) {
         return http.request({
-            url: '/users',
+            url: 'users',
             method: 'PUT',
             data: data,
         })
@@ -19,7 +19,7 @@ export class userRequest {
 
     static delUser(data: any) {
         return http.request({
-            url: '/users',
+            url: 'users',
             method: 'DELETE',
             data: data,
         })
@@ -27,7 +27,7 @@ export class userRequest {
 
     static getUserByPage(currentPage: number, pageSize: number) {
         return http.request({
-            url: '/users/pages/' + currentPage + '/' + pageSize,
+            url: 'users/pages/' + currentPage + '/' + pageSize,
             method: 'GET',
         })
     }
