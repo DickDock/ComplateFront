@@ -6,6 +6,7 @@ import ElementPlus from "unplugin-element-plus/vite";
 import Components from "unplugin-vue-components/vite";
 // @ts-ignore
 import path from "path";
+// @ts-ignore
 import obfuscator from 'rollup-plugin-obfuscator';
 
 
@@ -85,19 +86,8 @@ export default defineConfig(({command, mode}) => {
                         if (id.includes('node_modules')) {
                             return id.toString().split('node_modules/')[1].split('/')[0].toString();
                         }
-                    }
+                    },
                 },
-                plugins: [
-                    obfuscator({
-                        transformObjectKeys: true,
-                        unicodeEscapeSequence: true,
-                        numbersToExpressions: true,
-                        shuffleStringArray: true,
-                        splitStrings: true,
-                        stringArrayThreshold: 1,
-                        identifierNamesGenerator: 'hexadecimal'
-                    })
-                ]
             },
             minify: 'terser' // 混淆器，terser构建后文件体积更小
         },
