@@ -6,8 +6,6 @@ import ElementPlus from "unplugin-element-plus/vite";
 import Components from "unplugin-vue-components/vite";
 // @ts-ignore
 import path from "path";
-// @ts-ignore
-import obfuscator from 'rollup-plugin-obfuscator';
 
 
 // @ts-ignore
