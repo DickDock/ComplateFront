@@ -1,13 +1,13 @@
 <template>
   <div class="">
     <el-table
-        :data="tableData.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
+        :data="paginationData.records.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
         style="width: 100%"
         v-loading="loading"
         :row-class-name="delUserStyle">
       <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="registrationDate" label="注册日期" sortable/>
-      <el-table-column label="状态">
+      <el-table-column label="状态" width="60">
         <template #default="scope">
           <el-switch v-model="scope.row.status"
                      @change="switchChange(scope.row)"
@@ -71,17 +71,19 @@
 
     </el-dialog>
 
-    <div class="demo-pagination-block">
+    <!--    分页组件-->
+    <el-row>
       <el-pagination
-          v-model:currentPage="currentPage"
+          v-model:currentPage="paginationData.current"
           :page-sizes="[10, 20, 50, 100, 200, 500]"
-          :page-size="10"
+          :page-size=pageSize
           layout="total, sizes, prev, pager, next, jumper"
-          :total="400"
+          :total=paginationData.total
+          :hide-on-single-page="true"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange">
       </el-pagination>
-    </div>
+    </el-row>
 
   </div>
 </template>
@@ -103,9 +105,12 @@ export default {
       editTableData: [],
       search: '',
       editDialogVisible: false,
-      currentPage: 1,
-      currentPageSize: 10,
-      totalUsers: 0,
+      pageSize: 10,
+      paginationData: {
+        records: [],
+        current: 1,
+        total: 0,
+      }
     }
   },
   methods: {
@@ -135,15 +140,17 @@ export default {
       }
     },
     getAllUsers() {
-      userRequest.getUserList().then(res => {
-        this.tableData = res.data
-        this.loading = !this.loading
-      }).catch((err) => {
-        console.log("err" + err)
-      })
-      userRequest.getUserByPage(this.currentPage, this.currentPageSize)
+      // userRequest.getUserList().then(res => {
+      //   this.tableData = res.data
+      //   this.loading = !this.loading
+      // }).catch((err) => {
+      //   console.log("err" + err)
+      // })
+      userRequest.getUserByPage(this.paginationData.current, this.pageSize)
           .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
+            this.paginationData = res.data
+            this.loading = !this.loading
           })
           .catch((err) => {
             console.log("err" + err)
@@ -184,9 +191,14 @@ export default {
     },
     handleSizeChange(val: number) {
       console.log(`${val} items per page`)
+      this.pageSize = val
+      this.loading = !this.loading
+      this.getAllUsers()
     },
     handleCurrentChange(val: number) {
       console.log(`current page: ${val}`)
+      this.loading = !this.loading
+      this.getAllUsers()
     },
   },
 }

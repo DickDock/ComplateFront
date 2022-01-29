@@ -46,7 +46,7 @@ class AxiosHttpRequest implements BaseType {
     constructor() {
         // @ts-ignore
         this.baseURL = import.meta.env.VITE_APP_BASE_API
-        this.timeout = 1500
+        this.timeout = 3000
     }
 
     // 配置参数
