@@ -1,25 +1,29 @@
 import {defineConfig, loadEnv} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import AutoImport from 'unplugin-auto-import/vite'
-import ElementPlus from 'unplugin-element-plus/vite'
-import Components from 'unplugin-vue-components/vite'
-import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
+import vue from "@vitejs/plugin-vue";
+import AutoImport from "unplugin-auto-import/vite";
+import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
+import ElementPlus from "unplugin-element-plus/vite";
+import Components from "unplugin-vue-components/vite";
 // @ts-ignore
-import path from 'path';
+import path from "path";
 
 
-// https://vitejs.dev/config/
-export default ({command, mode}) => {
-    return defineConfig({
+// @ts-ignore
+export default defineConfig(({command, mode}) => {
+    console.log('----------------------------环境信息------------------------------------')
+    console.log("mode => " + mode)
+    console.log("command => " + command)
+    console.log('----------------------------环境信息------------------------------------')
+
+    const configData = {
         plugins: [
             vue(),
             AutoImport({
                 resolvers: [ElementPlusResolver({
-                    importStyle: 'css',
+                    importStyle: 'sass',
                 })],
             }),
-            ElementPlus({
-            }),
+            ElementPlus({}),
             Components({
                 // 要搜索组件的目录的相对路径.
                 dirs: ['./src/components', './src/views'],
@@ -69,29 +73,7 @@ export default ({command, mode}) => {
                 '~script': path.resolve(__dirname, './src/script'),
             }
         },
-        server: {
-            host: '127.0.0.1',
-            // @ts-ignore
-            port: Number(loadEnv(mode, process.cwd()).VITE_APP_PORT),
-            strictPort: true, // 端口被占用直接退出
-            https: false,
-            open: true,// 在开发服务器启动时自动在浏览器中打开应用程序
-            proxy: {
-                // 字符串简写写法
-                // '/foo': '',
-                // 选项写法
-                '/api': {
-                    // @ts-ignore
-                    // target: mode === 'dev' ? loadEnv(mode, process.cwd()).VITE_APP_DEV_URL : loadEnv(mode, process.cwd()).VITE_APP_PROD_URL,
-                    target: "http://127.0.0.1",
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/api/, ""),
-                }
-            },
-            hmr: {
-                overlay: false // 屏蔽服务器报错
-            }
-        },
+        server: [],
         build: {
             chunkSizeWarningLimit: 1500,
             rollupOptions: {
@@ -104,6 +86,37 @@ export default ({command, mode}) => {
                     }
                 }
             }
-        }
-    })
-}
+        },
+    };
+
+    if (command === 'serve') {
+        configData['server'] = {
+            // @ts-ignore
+            host: '127.0.0.1',
+            // @ts-ignore
+            port: Number(loadEnv(mode, process.cwd()).VITE_APP_PORT),
+            strictPort: true, // 端口被占用直接退出
+            https: false,
+            open: true,// 在开发服务器启动时自动在浏览器中打开应用程序
+            proxy: {
+                // 字符串简写写法
+                // '/foo': '',
+                // 选项写法
+                '/api': {
+                    // @ts-ignore
+                    target: mode === 'development' ? loadEnv(mode, process.cwd()).VITE_APP_DEV_URL : loadEnv(mode, process.cwd()).VITE_APP_PROD_URL,
+                    // target: "http://127.0.0.1",
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/api/, ""),
+                }
+            },
+            hmr: {
+                overlay: false // 屏蔽服务器报错
+            }
+        };
+    } else {
+        configData['server'] = []
+    }
+
+    return configData;
+})
