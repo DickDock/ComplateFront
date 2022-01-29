@@ -7,7 +7,7 @@
         :row-class-name="delUserStyle">
       <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="registrationDate" label="注册日期" sortable/>
-      <el-table-column label="状态" width="60">
+      <el-table-column label="状态" width="70">
         <template #default="scope">
           <el-switch v-model="scope.row.status"
                      @change="switchChange(scope.row)"
@@ -204,5 +204,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 </style>
