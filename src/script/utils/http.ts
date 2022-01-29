@@ -45,11 +45,15 @@ class AxiosHttpRequest implements BaseType {
 
     constructor() {
         const devStatus = import.meta.env.VITE_DEV_STATUS
-        if (devStatus) {
-            this.baseURL = import.meta.env.VITE_APP_BASE_API + 'api'
+        if (devStatus == true) {
+            this.baseURL = import.meta.env.VITE_APP_BASE_API + 'api/'
         } else {
-            // @ts-ignore
-            this.baseURL = import.meta.env.VITE_APP_PROD_URL
+            this.baseURL = import.meta.env.VITE_APP_PROD_URL + '/'
+        }
+
+        if (devStatus == true) {
+            console.log("获取到的开发状态为： " + devStatus)
+            console.log("最终URL为： " + this.baseURL)
         }
 
         this.timeout = 3000
