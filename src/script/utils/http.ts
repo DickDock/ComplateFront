@@ -44,14 +44,20 @@ class AxiosHttpRequest implements BaseType {
     timeout: number;
 
     constructor() {
-        const devStatus = import.meta.env.VITE_DEV_STATUS
-        if (devStatus == true) {
-            this.baseURL = import.meta.env.VITE_APP_BASE_API + '/api/'
+        const devStatus: string = String(import.meta.env.VITE_DEV_STATUS)
+        if (devStatus == 'true') {
+            this.baseURL = '/api/'
         } else {
             this.baseURL = '/'
         }
 
-        if (devStatus == true) {
+        if (devStatus == 'true') {
+            console.log('获取到的开发状态变量类型为： ' + typeof devStatus);
+            console.log("获取到的开发状态为： " + devStatus)
+            console.log("最终URL为： " + this.baseURL)
+        } else {
+            console.log("当前为生产环境！" )
+            console.log('获取到的开发状态变量类型为： ' + typeof devStatus);
             console.log("获取到的开发状态为： " + devStatus)
             console.log("最终URL为： " + this.baseURL)
         }
