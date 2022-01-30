@@ -46,9 +46,8 @@ class AxiosHttpRequest implements BaseType {
     constructor() {
         const devStatus = import.meta.env.VITE_DEV_STATUS
         if (devStatus == true) {
-            this.baseURL = import.meta.env.VITE_APP_BASE_API + 'api/'
+            this.baseURL = import.meta.env.VITE_APP_BASE_API + '/api/'
         } else {
-            // this.baseURL = import.meta.env.VITE_APP_PROD_URL + '/'
             this.baseURL = '/'
         }
 
