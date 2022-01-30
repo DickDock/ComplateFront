@@ -119,5 +119,8 @@ export default defineConfig(({command, mode}) => {
         configData['server'] = []
     }
 
+    // @ts-ignore
+    console.log("获取到的Target链接为：" + loadEnv(mode, process.cwd()).VITE_APP_DEV_URL)
+
     return configData;
 })
