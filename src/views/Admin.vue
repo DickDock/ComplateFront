@@ -32,7 +32,6 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-// import Nav from '../components/admin/Nav.vue'
 
 
 export default defineComponent({

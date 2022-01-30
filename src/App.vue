@@ -7,32 +7,32 @@
           <el-col :span="6" class="">
             <el-row justify="end">
               <el-button circle>
-                <el-icon :size="20" class="bg-slate-100">
+                <el-icon class="">
                   <Search/>
                 </el-icon>
               </el-button>
               <el-button type="" circle>
-                <el-icon :size="20" class="text-blue-300">
+                <el-icon class="text-blue-300">
                   <Edit/>
                 </el-icon>
               </el-button>
               <el-button type="" circle>
-                <el-icon :size="20" class="text-emerald-300">
+                <el-icon class="text-emerald-300">
                   <Check/>
                 </el-icon>
               </el-button>
               <el-button type="" circle>
-                <el-icon :size="20" class="text-violet-300">
+                <el-icon class="text-violet-300">
                   <Message/>
                 </el-icon>
               </el-button>
               <el-button type="" circle>
-                <el-icon :size="20" class="text-amber-300">
+                <el-icon class="text-amber-300">
                   <Star/>
                 </el-icon>
               </el-button>
               <el-button type="" circle>
-                <el-icon :size="20" class="text-rose-300">
+                <el-icon class="text-rose-300">
                   <Delete/>
                 </el-icon>
               </el-button>

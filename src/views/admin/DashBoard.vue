@@ -39,24 +39,19 @@
   </div>
 </template>
 
-<script>
-// import monitoringTaskList from "../../components/admin/dashboard/monitoringTaskList.vue";
-// import HistoricalAlarm from "../../components/admin/dashboard/HistoricalAlarm.vue";
-// import VulnInfo from "../../components/admin/dashboard/VulnInfo.vue";
+<script lang="ts">
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
   name: "DashBoard",
   components: {},
   setup() {
   }
-}
+})
 </script>
 
 <style scoped>
 #mainBox {
-  /*background-image: url('../../assets/images/dashbg.jpg');*/
-  width: 100%;
-  height: 100%;
   background-color: #21D4FD;
   background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
 }
