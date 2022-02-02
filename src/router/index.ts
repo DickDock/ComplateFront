@@ -4,8 +4,8 @@ const routes = [
     {
         path: "/",
         name: "Index",
-        meta:{
-            showNav:true
+        meta: {
+            showNav: true
         },
         component: () => import("../views/Index.vue"),
     },
@@ -13,8 +13,8 @@ const routes = [
         path: "/admin",
         name: "Admin",
         component: () => import("../views/Admin.vue"),
-        meta:{
-            showNav:false
+        meta: {
+            showNav: false
         },
         children: [
             {path: '', component: () => import ("../views/admin/DashBoard.vue")},
@@ -23,12 +23,14 @@ const routes = [
             {
                 path: 'user', component: () => import ("../views/admin/UserManager.vue"),
                 children: [
-                    {path: '',component: () => import ('../components/admin/usermanager/UserList.vue')}
+                    {path: '', component: () => import ('../components/admin/usermanager/UserList.vue')}
                 ]
             },
             {path: 'log', component: () => import ("../views/admin/LogManager.vue")},
         ]
     },
+    // 该路由需放置在最后，兜底路由。
+    {path: '/:pathMatch(.*)', redirect: {name: 'index'}}
 ];
 
 // @ts-ignore

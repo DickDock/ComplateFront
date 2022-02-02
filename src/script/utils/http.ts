@@ -1,5 +1,4 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
-import {ElMessage} from 'element-plus';
 
 // 接口类型和方法
 interface BaseType {
