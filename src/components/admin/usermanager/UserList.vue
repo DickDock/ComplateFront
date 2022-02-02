@@ -5,6 +5,7 @@
         style="width: 100%"
         v-loading="loading"
         :row-class-name="delUserStyle">
+      <el-table-column type="selection" width="55" />
       <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="registrationDate" label="注册日期" sortable/>
       <el-table-column label="状态" width="70">
@@ -72,7 +73,7 @@
     </el-dialog>
 
     <!--    分页组件-->
-    <el-row>
+    <el-row justify="center">
       <el-pagination
           v-model:currentPage="paginationData.current"
           :page-sizes="[10, 20, 50, 100, 200, 500]"
@@ -91,8 +92,19 @@
 <script lang="ts">
 import {defineComponent} from 'vue'
 // @ts-ignore
-import {userRequest} from "@/script/api/users/index";
-import {ElMessage} from 'element-plus'
+import {userRequest} from '@/script/api/users/index';
+
+
+interface User {
+  id:number
+  userName: string
+  registrationDate: string
+  status: boolean
+  email: string
+  phone: string
+  qq: string
+  passWord: string
+}
 
 export default defineComponent({
   name: "UserList",
