@@ -9,7 +9,7 @@
               <el-input v-model="formData.userName" placeholder="用户名"></el-input>
             </el-form-item>
             <el-form-item class="-mt-3">
-              <el-input v-model="formData.passWd" placeholder="密码" type="password" show-password></el-input>
+              <el-input v-model="formData.passWd" placeholder="密码" type="password"></el-input>
             </el-form-item>
             <el-form-item class="-mt-3">
               <el-image :src="captchaData.captcha" fit="fill" class="w-32 h-10 mb-2" @click="getCaptcha"></el-image>
