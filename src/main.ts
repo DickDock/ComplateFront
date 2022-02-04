@@ -5,5 +5,6 @@ import router from './router'
 
 const app = createApp(App)
 app.config.globalProperties.$showNav = true
+app.config.globalProperties.$showFooter = true
 app.use(router)
 app.mount('#app')

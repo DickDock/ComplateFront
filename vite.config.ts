@@ -99,7 +99,7 @@ export default defineConfig(({command, mode}) => {
             port: Number(loadEnv(mode, process.cwd()).VITE_APP_PORT),
             strictPort: true, // 端口被占用直接退出
             https: false,
-            open: true,// 在开发服务器启动时自动在浏览器中打开应用程序
+            open: false,// 在开发服务器启动时自动在浏览器中打开应用程序
             proxy: {
                 // 字符串简写写法
                 // '/foo': '',

@@ -5,7 +5,8 @@ const routes = [
         path: "/",
         name: "Index",
         meta: {
-            showNav: true
+            showNav: true,
+            showFooter: true
         },
         component: () => import("../views/Index.vue"),
     },
@@ -28,6 +29,14 @@ const routes = [
             },
             {path: 'log', component: () => import ("../views/admin/LogManager.vue")},
         ]
+    },
+    {
+        path: "/login",
+        name: "Login",
+        meta: {
+            showFooter: false
+        },
+        component: () => import("../views/Login.vue"),
     },
     // 该路由需放置在最后，兜底路由。
     {path: '/:pathMatch(.*)', redirect: {name: 'index'}}
