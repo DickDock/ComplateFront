@@ -12,7 +12,7 @@
               <el-input v-model="formData.passWd" placeholder="密码" type="password" show-password></el-input>
             </el-form-item>
             <el-form-item class="-mt-3">
-              <el-image :src="captchaUrl" fit="fill" class="w-32 h-10 mb-2" @click="getCaptcha"></el-image>
+              <el-image :src="captchaData.captcha" fit="fill" class="w-32 h-10 mb-2" @click="getCaptcha"></el-image>
               <el-input v-model="formData.verifyCode" placeholder="验证码"></el-input>
             </el-form-item>
             <el-form-item class="-mt-3">
@@ -36,9 +36,12 @@ export default defineComponent({
       formData: {
         userName: '',
         passWd: '',
-        verifyCode: ''
+        verifyCode: '',
       },
-      captchaUrl: null
+      captchaData: {
+        'captcha': null,
+        'captchaId': null,
+      }
     }
   },
   mounted() {
@@ -46,14 +49,18 @@ export default defineComponent({
   },
   methods: {
     onSubmit() {
-      console.log('登录中！！！')
-      console.log(this.formData)
+      userRequest.login(this.formData).then((res) => {
+        console.log('登录结果 => ')
+        console.log(res)
+      })
     },
     getCaptcha() {
       userRequest.getCaptcha()
           .then((res) => {
-            console.log("验证码数据填充")
-            this.captchaUrl = 'data:image/png;base64,' + res.data
+            console.log(res)
+            this.captchaData.captcha = 'data:image/png;base64,' + res.data.captcha
+            this.captchaData.captchaId = res.data.captchaId
+            this.formData.captchaID = res.data.captchaId
           });
     }
   },
