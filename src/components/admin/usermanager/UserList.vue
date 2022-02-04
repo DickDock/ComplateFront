@@ -136,12 +136,15 @@ export default defineComponent({
           .then((res) => {
             if (res.status == true) {
               this.tableData.splice(index, 1)
+              // @ts-ignore
               ElMessage.success('用户删除成功')
             } else {
+              // @ts-ignore
               ElMessage.error('用户删除失败')
             }
           })
           .catch((err) => {
+            // @ts-ignore
             ElMessage.error(err)
           })
     },
@@ -175,15 +178,19 @@ export default defineComponent({
         userRequest.updateUser(this.editTableData)
             .then((res) => {
               if (res.status == true) {
+                // @ts-ignore
                 ElMessage.success('用户信息修改成功')
               } else {
+                // @ts-ignore
                 ElMessage.error('用户信息修改失败')
               }
             })
             .catch((err) => {
+              // @ts-ignore
               ElMessage.error(err)
             })
       } else {
+        // @ts-ignore
         ElMessage.info('取消修改')
       }
     },
@@ -191,13 +198,16 @@ export default defineComponent({
       userRequest.updateUser(data)
           .then((res) => {
             if (res.status == true) {
+              // @ts-ignore
               ElMessage.success('修改成功')
             } else {
+              // @ts-ignore
               ElMessage.error('修改失败')
               location.reload()
             }
           })
           .catch((err) => {
+            // @ts-ignore
             ElMessage.error('修改失败')
             location.reload()
           })
