@@ -50,8 +50,6 @@ export default defineComponent({
   methods: {
     onSubmit() {
       userRequest.login(this.formData).then((res) => {
-        console.log('登录结果 => ')
-        console.log(res)
         if (res.data == true) {
           ElMessage.success("登录成功")
         } else {
