@@ -1,6 +1,6 @@
 <template>
   <el-config-provider :locale="locale">
-    <el-container style="height: 100%;">
+    <el-container style="">
 
       <el-header class="py-2" v-show="$route.meta.showNav">
         <el-row :gutter="18" justify="end">
@@ -45,7 +45,7 @@
         <router-view/>
       </el-main>
 
-      <el-footer class="">
+      <el-footer class="" v-show="$route.meta.showFooter">
         <el-row class="h-full" justify="center" align="middle">
           <span class="text-2xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">LS毕设项目</span>
         </el-row>

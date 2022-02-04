@@ -31,4 +31,19 @@ export class userRequest {
             method: 'GET',
         })
     }
+
+    static getCaptcha() {
+        return http.request({
+            url: 'login/getCode',
+            method: 'GET'
+        })
+    }
+
+    static login(data: any) {
+        return http.request({
+            url: 'login',
+            method: 'POST',
+            data: data,
+        })
+    }
 }
