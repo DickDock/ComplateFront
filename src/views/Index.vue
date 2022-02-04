@@ -14,7 +14,8 @@
     </div>
     <el-card class="box-card mt-4 mx-auto" shadow="hover">
       <div class="text item">
-        <el-button type="primary" @click="goAdmin" class="bg-blue-400 font-mono">访问后台页面</el-button>
+        <el-button type="primary" @click="goAdmin" class="bg-blue-400 font-mono">后台</el-button>
+        <el-button type="primary" @click="goLogin" class="bg-blue-400 font-mono">登录</el-button>
       </div>
     </el-card>
   </div>
@@ -32,6 +33,9 @@ export default defineComponent({
   methods: {
     goAdmin() {
       this.$router.push('/admin')
+    },
+    goLogin() {
+      this.$router.push('/login')
     }
   }
 });
