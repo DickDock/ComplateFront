@@ -5,9 +5,9 @@
         style="width: 100%"
         v-loading="loading"
         :row-class-name="delUserStyle">
-      <el-table-column type="selection" width="55" />
+      <el-table-column type="selection" width="55"/>
       <el-table-column prop="userName" label="用户名"/>
-      <el-table-column prop="registrationDate" label="注册日期" sortable/>
+      <el-table-column prop="createTime" label="注册日期" sortable/>
       <el-table-column label="状态" width="70">
         <template #default="scope">
           <el-switch v-model="scope.row.status"
@@ -46,9 +46,6 @@
         <el-form-item label="用户名">
           <el-input v-model="editTableData['userName']"></el-input>
         </el-form-item>
-        <el-form-item label="注册日期">
-          <el-input v-model="editTableData['registrationDate']" disabled></el-input>
-        </el-form-item>
         <el-form-item label="邮箱">
           <el-input v-model="editTableData['email']"></el-input>
         </el-form-item>
@@ -57,6 +54,9 @@
         </el-form-item>
         <el-form-item label="QQ">
           <el-input v-model="editTableData['qq']"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input v-model="editTableData['passWord']" placeholder="为空不修改密码" type="password"></el-input>
         </el-form-item>
         <el-form-item label="状态">
           <el-switch v-model="editTableData['status']" inline-prompt active-text="启" inactive-text="封"></el-switch>
@@ -96,7 +96,7 @@ import {userRequest} from '@/script/api/users/index';
 
 
 interface User {
-  id:number
+  id: number
   userName: string
   registrationDate: string
   status: boolean
@@ -156,15 +156,9 @@ export default defineComponent({
       }
     },
     getAllUsers() {
-      // userRequest.getUserList().then(res => {
-      //   this.tableData = res.data
-      //   this.loading = !this.loading
-      // }).catch((err) => {
-      //   console.log("err" + err)
-      // })
       userRequest.getUserByPage(this.paginationData.current, this.pageSize)
           .then((res) => {
-            // console.log(res.data)
+            console.log(res.data)
             this.paginationData = res.data
             this.loading = !this.loading
           })
@@ -174,6 +168,7 @@ export default defineComponent({
     },
     updateUserHandle(confirm: boolean) {
       this.editDialogVisible = false
+      console.log(this.editTableData)
       if (confirm) {
         userRequest.updateUser(this.editTableData)
             .then((res) => {
