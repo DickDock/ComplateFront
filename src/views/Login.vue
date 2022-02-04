@@ -1,24 +1,22 @@
 <template>
   <div class="relative login-box bg-no-repeat">
-    <div class="absolute top-[25%] right-[10%] loginForm bg-cover bg-center p-32">
-      <div class="-mt-24">
+    <div class="absolute md:top-[25%] md:right-[10%] loginForm bg-cover bg-center p-32">
+      <div class="-mt-32 -ml-4">
         <span class="text-4xl text-white">大数据风险分析平台</span>
-        <div class="mt-20 w-60 mx-auto">
+        <div class="mt-28 w-60 mx-auto">
           <el-form ref="formRef" :model="formData" label-position="left">
             <el-form-item label="">
               <el-input v-model="formData.userName" placeholder="用户名"></el-input>
             </el-form-item>
-            <el-form-item label="">
-              <el-input v-model="formData.passWd" placeholder="密码"
-                        type="password"
-                        show-password></el-input>
+            <el-form-item class="-mt-3">
+              <el-input v-model="formData.passWd" placeholder="密码" type="password" show-password></el-input>
             </el-form-item>
-            <el-form-item label="">
+            <el-form-item class="-mt-3">
               <el-image :src="captchaUrl" fit="fill" class="w-32 h-10 mb-2" @click="getCaptcha"></el-image>
               <el-input v-model="formData.verifyCode" placeholder="验证码"></el-input>
             </el-form-item>
-            <el-form-item class="-mt-2">
-              <el-button type="primary" @click="onSubmit">登录</el-button>
+            <el-form-item class="-mt-3">
+              <el-button type="primary" @click="onSubmit" class="">登录</el-button>
             </el-form-item>
           </el-form>
         </div>
