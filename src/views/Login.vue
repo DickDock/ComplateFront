@@ -52,6 +52,7 @@ export default defineComponent({
       userRequest.login(this.formData).then((res) => {
         if (res.data == true) {
           ElMessage.success("登录成功")
+          this.$router.push('/admin')
         } else {
           ElMessage.warning(res.msg)
         }
