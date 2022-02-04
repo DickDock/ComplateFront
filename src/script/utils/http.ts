@@ -93,7 +93,7 @@ class AxiosHttpRequest implements BaseType {
                 let url = config.url + '?';
                 for (const propName of Object.keys(config.params)) {
                     const value = config.params[propName];
-                    var part = encodeURIComponent(propName) + "=";
+                    const part = encodeURIComponent(propName) + "=";
                     if (value !== null && typeof (value) !== "undefined") {
                         if (typeof value === 'object') {
                             for (const key of Object.keys(value)) {
@@ -144,6 +144,7 @@ class AxiosHttpRequest implements BaseType {
             if (code === 200) {
                 return Promise.resolve(res.data)
             } else {
+                // @ts-ignore
                 ElMessage.error(msg)
                 return Promise.reject(res.data)
             }
@@ -157,6 +158,7 @@ class AxiosHttpRequest implements BaseType {
             } else if (message.includes("Request failed with status code")) {
                 message = "系统接口" + message.substr(message.length - 3) + "异常";
             }
+            // @ts-ignore
             ElMessage.error({
                 message: message,
                 duration: 5 * 1000
