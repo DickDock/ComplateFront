@@ -34,7 +34,7 @@ export default defineComponent({
       activeName: 'first',
     }
   },
-  mdiskods: {
+  methods: {
     handleClick(tab: string, event: Event) {
       console.log(tab, event)
     },
