@@ -1,8 +1,8 @@
 <template>
   <div class="relative login-box bg-no-repeat">
     <div class="absolute md:top-[25%] md:right-[10%] loginForm bg-cover bg-center p-32">
-      <div class="-mt-32 -ml-4">
-        <span class="text-4xl text-white">大数据风险分析平台</span>
+      <div class="md:-mt-32 md:-ml-4">
+        <span class="md:text-4xl text-white">大数据风险分析平台</span>
         <div class="mt-28 w-60 mx-auto">
           <el-form ref="formRef" :model="formData" label-position="left">
             <el-form-item label="">
@@ -51,9 +51,11 @@ export default defineComponent({
     onSubmit() {
       userRequest.login(this.formData).then((res) => {
         if (res.data == true) {
+          // @ts-ignore
           ElMessage.success("登录成功")
           this.$router.push('/admin')
         } else {
+          // @ts-ignore
           ElMessage.warning(res.msg)
         }
       })
