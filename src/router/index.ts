@@ -21,6 +21,7 @@ const routes = [
             {path: '', component: () => import ("../views/admin/DashBoard.vue")},
             {path: 'system', component: () => import ("../views/admin/SystemSetting.vue")},
             {path: 'system/status', component: () => import ("../views/admin/SystemStatus.vue")},
+            {path: 'crontab', component: () => import ("../views/admin/crontabManager.vue")},
             {
                 path: 'user', component: () => import ("../views/admin/UserManager.vue"),
                 children: [
@@ -39,7 +40,7 @@ const routes = [
         component: () => import("../views/Login.vue"),
     },
     // 该路由需放置在最后，兜底路由。
-    {path: '/:pathMatch(.*)', redirect: {name: 'index'}}
+    {path: '/:pathMatch(.*)', redirect: {name: 'Index'}}
 ];
 
 // @ts-ignore
