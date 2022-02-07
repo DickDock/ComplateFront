@@ -35,6 +35,12 @@
           <el-menu-item index="/admin/system/status">状态监控</el-menu-item>
         </el-menu-item-group>
       </el-sub-menu>
+      <el-menu-item index="/admin/crontab">
+        <el-icon>
+          <ship/>
+        </el-icon>
+        <template #title>任务管理</template>
+      </el-menu-item>
       <el-menu-item index="/admin/user">
         <el-icon>
           <avatar/>
@@ -54,25 +60,13 @@
 <script lang="ts">
 import {defineComponent, ref} from 'vue'
 import {
-  Location,
-  Document,
-  Menu as IconMenu,
-  Setting,
-  Grid,
-  Avatar,
-  CaretRight,
+  Location, Document, Menu as IconMenu, Setting, Grid, Avatar, CaretRight, Ship,
 } from '@element-plus/icons-vue'
 
 export default defineComponent({
   name: "Nav",
   components: {
-    Location,
-    Document,
-    Setting,
-    IconMenu,
-    Grid,
-    Avatar,
-    CaretRight,
+    Location, Document, Setting, IconMenu, Grid, Avatar, CaretRight, Ship,
   },
   setup() {
     const isCollapse = ref(true)

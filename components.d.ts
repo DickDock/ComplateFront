@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Admin: typeof import('./src/views/Admin.vue')['default']
+    CrontabManager: typeof import('./src/views/admin/crontabManager.vue')['default']
     DailLog: typeof import('./src/components/common/DailLog.vue')['default']
     DashBoard: typeof import('./src/views/admin/DashBoard.vue')['default']
     DemoCharts1: typeof import('./src/components/DemoCharts1.vue')['default']
