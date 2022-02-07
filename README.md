@@ -40,6 +40,8 @@
 https://v3.cn.vuejs.org/guide/introduction.html
 ##  TailWindCss
 https://tailwindcss.com/docs
+## TailWindCss中文站点
+https://tailwind.wyz.xyz/docs/scroll-snap-align
 ## ElementPlus
 https://element-plus.gitee.io/zh-CN
 ## 自动导入svg图插件
