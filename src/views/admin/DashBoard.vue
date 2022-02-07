@@ -1,40 +1,7 @@
 <template>
-  <div class="bg-fixed" id="mainBox">
-    <div class="h-full w-full p-2">
-      <span class="block text-4xl text-center text-white">系统概览</span>
-      <div class="grid grid-cols-3 gap-4 mt-2">
-        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
-          <div class="bg-transparent">
-            <div class="">
-              <span class="text-xl text-white">监控任务统计 >></span>
-            </div>
-            <div class="">
-              <monitoring-task-list/>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
-          <div class="bg-transparent">
-            <div class="">
-              <span class="text-xl text-white">历史告警数 >></span>
-            </div>
-
-            <div class="">
-              <HistoricalAlarm/>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 bg-gray-50 rounded-3xl bg-opacity-20">
-          <div class="bg-transparent">
-            <div class="">
-              <span class="text-xl text-white">漏洞级别分类 >></span>
-            </div>
-            <div class="">
-              <VulnInfo/>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="mainBox h-screen">
+    <div class="titleDiv bg-cover">
+      <span class="text-center text-4xl block">主机安全态势预警平台</span>
     </div>
   </div>
 </template>
@@ -51,8 +18,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-#mainBox {
-  background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+.mainBox{
+  /*background-image: url("@/assets/images/dashboard/mainBg.svg");*/
+}
+.titleDiv {
+  background-image: url("@/assets/images/dashboard/topBg.svg");
 }
 </style>

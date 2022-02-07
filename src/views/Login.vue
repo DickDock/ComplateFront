@@ -75,11 +75,11 @@ export default defineComponent({
 
 <style scoped>
 .login-box {
-  background-image: url("@/assets/images/loginBg.png");
+  background-image: url("@/assets/images/login/loginBg.png");
   height: 95vh;
 }
 
 .loginForm {
-  background-image: url("@/assets/images/loginBoxBg.png");
+  background-image: url("@/assets/images/login/loginBoxBg.png");
 }
 </style>
