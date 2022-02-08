@@ -9,7 +9,18 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    //===========编译器ide提示。。。。
+    "baseUrl": "./",
+    "paths": {
+      "/@/*": [
+        "./src/*"
+      ]
+    }
+    //===========编译器ide提示。。。。
   },
   "include": [
     "src/**/*.ts",

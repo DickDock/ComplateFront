@@ -1,11 +1,10 @@
 <template>
   <div class="mainBox h-screen bg-cover">
-    <div class="titleDiv bg-cover shadow">
-      <span class="text-center text-4xl block text-white mt-2">主机安全态势预警平台</span>
+    <div class="titleDiv">
+      <span class="">主机安全态势预警平台</span>
     </div>
-    <div class="grid grid-cols-3 grid-rows-3 gap-0">
-      <div class="bg-blue-400"></div>
-      <div class="bg-indigo-400-400"></div>
+    <div class="grid grid-cols-3 grid-rows-3 gap-4 mt-2">
+      <div class="bg-blue-400 p-36" v-for="n in 9"></div>
     </div>
   </div>
 </template>
@@ -23,9 +22,12 @@ export default defineComponent({
 
 <style scoped>
 .mainBox{
-  background-image: url("@/assets/images/dashboard/mainBg.png");
+  background-image: url('@/assets/images/dashboard/mainBg.png');
 }
 .titleDiv {
-  /*background-image: url("@/assets/images/dashboard/topBg.svg");*/
+  @apply bg-cover
+}
+.titleDiv span {
+  @apply text-center text-4xl block text-white mt-2
 }
 </style>
