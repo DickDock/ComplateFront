@@ -8,7 +8,6 @@ declare module 'vue' {
     CrontabManager: typeof import('./src/views/admin/crontabManager.vue')['default']
     DailLog: typeof import('./src/components/common/DailLog.vue')['default']
     DashBoard: typeof import('./src/views/admin/DashBoard.vue')['default']
-    DemoCharts1: typeof import('./src/components/DemoCharts1.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -23,19 +22,17 @@ declare module 'vue' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     GeneralInformation: typeof import('./src/components/admin/systemstatus/generalInformation.vue')['default']
-    HistoricalAlarm: typeof import('./src/components/admin/dashboard/HistoricalAlarm.vue')['default']
     Index: typeof import('./src/views/Index.vue')['default']
     IoStatus: typeof import('./src/components/admin/systemstatus/ioStatus.vue')['default']
     Login: typeof import('./src/views/Login.vue')['default']
     LogManager: typeof import('./src/views/admin/LogManager.vue')['default']
-    MonitoringTaskList: typeof import('./src/components/admin/dashboard/monitoringTaskList.vue')['default']
     Nav: typeof import('./src/components/admin/Nav.vue')['default']
     SystemSetting: typeof import('./src/views/admin/SystemSetting.vue')['default']
     SystemStatus: typeof import('./src/views/admin/SystemStatus.vue')['default']
+    TopLeftMemory: typeof import('./src/components/admin/dashboard/topLeftMemory.vue')['default']
     UsageStatus: typeof import('./src/components/admin/systemstatus/usageStatus.vue')['default']
     UserList: typeof import('./src/components/admin/usermanager/UserList.vue')['default']
     UserManager: typeof import('./src/views/admin/UserManager.vue')['default']
-    VulnInfo: typeof import('./src/components/admin/dashboard/VulnInfo.vue')['default']
   }
 }
 
