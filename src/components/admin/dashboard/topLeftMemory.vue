@@ -1,59 +1,64 @@
 <template>
-  <div class="">
-    <div class="inline-block" id="main"></div>
+  <div class="h-full w-full">
+    <div class="" id="Chart"></div>
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
-
+import {defineComponent} from 'vue'
 import * as echarts from 'echarts/core';
 import {
   TooltipComponent,
   TooltipComponentOption,
   LegendComponent,
-  LegendComponentOption
+  LegendComponentOption,
+  GridComponent
 } from 'echarts/components';
 import {PieChart, PieSeriesOption} from 'echarts/charts';
 import {LabelLayout} from 'echarts/features';
 import {CanvasRenderer} from 'echarts/renderers';
 
 export default defineComponent({
-  name: "VulnInfo",
+  name: "topLeftMemory",
   mounted() {
-    this.initEcharts()
+    this.buildChart()
   },
   methods: {
-    initEcharts() {
+    buildChart() {
       echarts.use([
         TooltipComponent,
         LegendComponent,
         PieChart,
         CanvasRenderer,
-        LabelLayout
-      ]);
-
-      type EChartsOption = echarts.ComposeOption<TooltipComponentOption | LegendComponentOption | PieSeriesOption>;
-
-      var chartDom = document.getElementById('main')!;
-      var myChart = echarts.init(chartDom);
-      var option: EChartsOption;
+        LabelLayout,
+        GridComponent
+      ])
+      type EChartsOption = echarts.ComposeOption<TooltipComponentOption | LegendComponentOption | PieSeriesOption>
+      const chartDom = document.getElementById('Chart')!
+      const myChart = echarts.init(chartDom)
+      let option: EChartsOption
 
       option = {
         tooltip: {
           trigger: 'item'
         },
         legend: {
-          orient: 'vertical',
-          top: '10%',
-          left: 'left'
+          left: 'center',
+          bottom: '5%',
+          orient: 'horizontal',
+          textStyle: {
+            color: '#FFF'
+          },
+        },
+        grid: {
+          bottom: '0px',
         },
         series: [
           {
-            name: 'Access From',
+            name: '进程信息',
             type: 'pie',
             radius: ['40%', '70%'],
-            avoidLabelOverlap: true,
+            avoidLabelOverlap: false,
             itemStyle: {
               borderRadius: 10,
               borderColor: '#fff',
@@ -74,25 +79,25 @@ export default defineComponent({
               show: false
             },
             data: [
-              {value: 1048, name: 'Search Engine'},
-              {value: 735, name: 'Direct'},
-              {value: 580, name: 'Email'},
-              {value: 484, name: 'Union Ads'},
-              {value: 300, name: 'Video Ads'}
+              {value: 1048, name: '进程1'},
+              {value: 735, name: '进程2'},
+              {value: 580, name: '进程3'},
+              {value: 484, name: '进程4'},
+              {value: 300, name: '进程5'}
             ]
           }
         ]
-      };
+      }
 
-      option && myChart.setOption(option);
-    }
-  }
+      option && myChart.setOption(option)
+    },
+  },
 })
 </script>
 
 <style scoped>
-#main {
+#Chart {
   width: 100%;
-  height: 200px;
+  height: 450px;
 }
 </style>
