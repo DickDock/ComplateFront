@@ -19,7 +19,7 @@
 
             <div class="">
               <div class="">
-                <top-left-memory></top-left-memory>
+                <top-left-memory/>
               </div>
             </div>
 
