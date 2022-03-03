@@ -8,7 +8,11 @@
       >
         <el-table-column prop="reqUrl" label="请求Url"/>
         <el-table-column prop="reqMethod" label="请求方式" width="100"/>
-        <el-table-column prop="reqArgs" label="请求参数" width="100"/>
+        <el-table-column label="请求参数" width="100">
+          <template #default="scope">
+            <span>{{scope.row.reqArgs}}</span>
+          </template>
+        </el-table-column>
         <el-table-column label="请求方式名" :show-overflow-tooltip='true'>
           <template #default="scope">
             <span>{{scope.row.reqMethodName}}</span>
@@ -83,12 +87,12 @@ export default defineComponent({
       console.log(`${val} items per page`)
       this.pageSize = val
       this.loading = !this.loading
-      this.getAllUsers()
+      this.getLogsByPage()
     },
     handleCurrentChange(val: number) {
       console.log(`current page: ${val}`)
       this.loading = !this.loading
-      this.getAllUsers()
+      this.getLogsByPage()
     },
   },
   data() {
