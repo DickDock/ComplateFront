@@ -94,7 +94,6 @@ import {defineComponent} from 'vue'
 // @ts-ignore
 import {userRequest} from '@/script/api/users/index';
 
-
 interface User {
   id: number
   userName: string

@@ -28,7 +28,12 @@ const routes = [
                     {path: '', component: () => import ('../components/admin/usermanager/UserList.vue')}
                 ]
             },
-            {path: 'log', component: () => import ("../views/admin/LogManager.vue")},
+            {
+                path: 'log', component: () => import ("../views/admin/LogManager.vue"),
+                children: [
+                    {path: '', component: () => import ("../components/admin/logmanger/LogList.vue")}
+                ]
+            },
         ]
     },
     {
