@@ -5,9 +5,9 @@
         style="width: 100%"
         :row-class-name="tableRowClassName">
 
-      <el-table-column label="漏洞ID" width="150">
+      <el-table-column label="漏洞ID" width="160">
         <template #default="scope">
-          <span>{{ scope.row.cveId }}</span>
+          <span>{{ scope.row.cnvdId }}</span>
         </template>
       </el-table-column>
 
@@ -118,7 +118,7 @@
     <el-row justify="center">
       <el-pagination
           v-model:currentPage="paginationData.current"
-          :page-sizes="[10, 20, 50, 100, 200, 500]"
+          :page-sizes="[15, 20, 50, 100, 200, 500]"
           :page-size=pageSize
           layout="total, sizes, prev, pager, next, jumper"
           :total=paginationData.total
@@ -137,8 +137,8 @@ import {VulRequest} from '@/script/api/vuls/index';
 
 interface Vul {
   id: number,
-  cveID: string,
-  cnvdID: string,
+  cveId: string,
+  cnvdId: string,
   vulName: string,
   vulRank: string,
   vulLevel: number,
@@ -195,7 +195,7 @@ export default defineComponent({
   },
   data() {
     return {
-      pageSize: 10,
+      pageSize: 15,
       paginationData: {
         records: [],
         current: 1,

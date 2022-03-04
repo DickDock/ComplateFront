@@ -30,7 +30,7 @@
       <el-row justify="center">
         <el-pagination
             v-model:currentPage="paginationData.current"
-            :page-sizes="[10, 20, 50, 100, 200, 500]"
+            :page-sizes="[15, 20, 50, 100, 200, 500]"
             :page-size=pageSize
             layout="total, sizes, prev, pager, next, jumper"
             :total=paginationData.total
@@ -99,7 +99,7 @@ export default defineComponent({
   data() {
     return {
       tableData: [],
-      pageSize: 10,
+      pageSize: 15,
       paginationData: {
         records: [],
         current: 1,
