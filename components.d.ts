@@ -49,6 +49,7 @@ declare module 'vue' {
     UsageStatus: typeof import('./src/components/admin/systemstatus/usageStatus.vue')['default']
     UserList: typeof import('./src/components/admin/usermanager/UserList.vue')['default']
     UserManager: typeof import('./src/views/admin/indexPages/UserManager.vue')['default']
+    VulManager: typeof import('./src/views/admin/indexPages/VulManager.vue')['default']
   }
 }
 
