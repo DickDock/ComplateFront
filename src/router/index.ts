@@ -8,28 +8,28 @@ const routes = [
             showNav: true,
             showFooter: true
         },
-        component: () => import("../views/Index.vue"),
+        component: () => import("../views/admin/indexPages/Index.vue"),
     },
     {
         path: "/admin",
         name: "Admin",
-        component: () => import("../views/Admin.vue"),
+        component: () => import("../views/admin/indexPages/Admin.vue"),
         meta: {
             showNav: false
         },
         children: [
-            {path: '', component: () => import ("../views/admin/DashBoard.vue")},
-            {path: 'system', component: () => import ("../views/admin/SystemSetting.vue")},
-            {path: 'system/status', component: () => import ("../views/admin/SystemStatus.vue")},
-            {path: 'crontab', component: () => import ("../views/admin/crontabManager.vue")},
+            {path: '', component: () => import ("../views/admin/indexPages/DashBoard.vue")},
+            {path: 'system', component: () => import ("../views/admin/system/SystemSetting.vue")},
+            {path: 'system/status', component: () => import ("../views/admin/system/SystemStatus.vue")},
+            {path: 'crontab', component: () => import ("../views/admin/indexPages/CrontabManager.vue")},
             {
-                path: 'user', component: () => import ("../views/admin/UserManager.vue"),
+                path: 'user', component: () => import ("../views/admin/indexPages/UserManager.vue"),
                 children: [
                     {path: '', component: () => import ('../components/admin/usermanager/UserList.vue')}
                 ]
             },
             {
-                path: 'log', component: () => import ("../views/admin/LogManager.vue"),
+                path: 'log', component: () => import ("../views/admin/indexPages/LogManager.vue"),
                 children: [
                     {path: '', component: () => import ("../components/admin/logmanger/LogList.vue")}
                 ]
@@ -42,7 +42,7 @@ const routes = [
         meta: {
             showFooter: false
         },
-        component: () => import("../views/Login.vue"),
+        component: () => import("../views/admin/indexPages/Login.vue"),
     },
     // 该路由需放置在最后，兜底路由。
     {path: '/:pathMatch(.*)', redirect: {name: 'Index'}}
