@@ -38,7 +38,18 @@
 
       <el-table-column label="漏洞等级" width="100">
         <template #default="scope">
-          <el-tag class="ml-2" type="danger">{{ scope.row.vulRank.slice(0, 1) }}</el-tag>
+          <el-tag class="ml-2" type="danger" effect="dark" v-if="scope.row.vulLevel === '3'">{{
+              scope.row.vulRank.slice(0, 1)
+            }}
+          </el-tag>
+          <el-tag class="ml-2" type="warning" effect="dark" v-else-if="scope.row.vulLevel === '2'">{{
+              scope.row.vulRank.slice(0, 1)
+            }}
+          </el-tag>
+          <el-tag class="ml-2" type="primary" effect="dark" v-else-if="scope.row.vulLevel === '1'">{{
+              scope.row.vulRank.slice(0, 1)
+            }}
+          </el-tag>
         </template>
       </el-table-column>
 
@@ -141,7 +152,7 @@ interface Vul {
   cnvdId: string,
   vulName: string,
   vulRank: string,
-  vulLevel: number,
+  vulLevel: string,
   vulRange: string,
   vulDetail: string,
   vulType: string,
@@ -162,7 +173,7 @@ export default defineComponent({
     getVulsByPage() {
       VulRequest.getVulByPage(this.paginationData.current, this.pageSize)
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             this.paginationData = res.data
             this.loading = !this.loading
           })
