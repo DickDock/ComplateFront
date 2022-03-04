@@ -10,17 +10,17 @@
         <el-table-column prop="reqMethod" label="请求方式" width="100"/>
         <el-table-column label="请求参数" :show-overflow-tooltip='true'>
           <template #default="scope">
-            <span>{{scope.row.reqArgs}}</span>
+            <span>{{ scope.row.reqArgs }}</span>
           </template>
         </el-table-column>
         <el-table-column label="请求方式名" :show-overflow-tooltip='true'>
           <template #default="scope">
-            <span>{{scope.row.reqMethodName}}</span>
+            <span>{{ scope.row.reqMethodName }}</span>
           </template>
         </el-table-column>
         <el-table-column label="请求类" :show-overflow-tooltip='true'>
           <template #default="scope">
-            <span>{{scope.row.reqClass}}</span>
+            <span>{{ scope.row.reqClass }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="createTime" label="创建时间"/>
@@ -49,6 +49,7 @@ import {defineComponent} from 'vue'
 import {LogRequest} from '@/script/api/logs/index';
 
 interface Log {
+  id: number,
   date: string
   name: string
   address: string
