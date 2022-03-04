@@ -74,6 +74,8 @@ export default defineConfig(({command, mode}) => {
                 '~script': path.resolve(__dirname, './src/script'),
             }
         },
+        css: {
+        },
         server: [],
         build: {
             chunkSizeWarningLimit: 1500,
@@ -89,6 +91,7 @@ export default defineConfig(({command, mode}) => {
             },
             minify: 'terser' // 混淆器，terser构建后文件体积更小
         },
+        base: './',
     };
 
     if (command === 'serve') {
