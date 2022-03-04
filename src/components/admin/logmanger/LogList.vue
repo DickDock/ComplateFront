@@ -8,7 +8,7 @@
       >
         <el-table-column prop="reqUrl" label="请求Url"/>
         <el-table-column prop="reqMethod" label="请求方式" width="100"/>
-        <el-table-column label="请求参数">
+        <el-table-column label="请求参数" :show-overflow-tooltip='true'>
           <template #default="scope">
             <span>{{scope.row.reqArgs}}</span>
           </template>
