@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
-import {userRequest} from "../script/api/users";
+import {userRequest} from "../../../script/api/users";
 
 export default defineComponent({
   name: "Login",
