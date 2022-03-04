@@ -22,6 +22,7 @@ const routes = [
             {path: 'system', component: () => import ("../views/admin/system/SystemSetting.vue")},
             {path: 'system/status', component: () => import ("../views/admin/system/SystemStatus.vue")},
             {path: 'crontab', component: () => import ("../views/admin/indexPages/CrontabManager.vue")},
+            {path: 'vul', component: () => import ("../views/admin/indexPages/VulManager.vue")},
             {
                 path: 'user', component: () => import ("../views/admin/indexPages/UserManager.vue"),
                 children: [

@@ -15,16 +15,12 @@
         :router="true"
     >
       <el-menu-item index="/admin">
-        <el-icon>
-          <grid/>
-        </el-icon>
+        <el-icon><grid/></el-icon>
         <template #title>系统概览</template>
       </el-menu-item>
       <el-sub-menu index="2">
         <template #title class="min-w-min">
-          <el-icon class="">
-            <setting/>
-          </el-icon>
+          <el-icon class=""><setting/></el-icon>
           <span>系统设置</span>
         </template>
         <el-menu-item-group>
@@ -35,6 +31,10 @@
           <el-menu-item index="/admin/system/status">状态监控</el-menu-item>
         </el-menu-item-group>
       </el-sub-menu>
+      <el-menu-item index="/admin/vul">
+        <el-icon><guide/></el-icon>
+        <template #title>漏洞信息</template>
+      </el-menu-item>
       <el-menu-item index="/admin/crontab">
         <el-icon>
           <ship/>
@@ -42,15 +42,11 @@
         <template #title>任务管理</template>
       </el-menu-item>
       <el-menu-item index="/admin/user">
-        <el-icon>
-          <avatar/>
-        </el-icon>
+        <el-icon><avatar/></el-icon>
         <template #title>用户管理</template>
       </el-menu-item>
       <el-menu-item index="/admin/log">
-        <el-icon>
-          <setting/>
-        </el-icon>
+        <el-icon><setting/></el-icon>
         <template #title>日志中心</template>
       </el-menu-item>
     </el-menu>
@@ -60,13 +56,13 @@
 <script lang="ts">
 import {defineComponent, ref} from 'vue'
 import {
-  Location, Document, Menu as IconMenu, Setting, Grid, Avatar, CaretRight, Ship,
+  Location, Document, Menu as IconMenu, Setting, Grid, Avatar, CaretRight, Ship, Guide
 } from '@element-plus/icons-vue'
 
 export default defineComponent({
   name: "Nav",
   components: {
-    Location, Document, Setting, IconMenu, Grid, Avatar, CaretRight, Ship,
+    Location, Document, Setting, IconMenu, Grid, Avatar, CaretRight, Ship, Guide
   },
   setup() {
     const isCollapse = ref(true)
