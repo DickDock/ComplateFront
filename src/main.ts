@@ -1,6 +1,7 @@
 import {createApp} from 'vue'
 import App from './App.vue'
 import '@/assets/css/app.css'
+import 'element-plus/dist/index.css'
 import router from './router'
 
 const app = createApp(App)
