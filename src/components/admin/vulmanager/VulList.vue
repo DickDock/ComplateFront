@@ -3,6 +3,7 @@
     <el-table
         :data="paginationData.records"
         style="width: 100%"
+        empty-text="数据加载中"
         :row-class-name="tableRowClassName">
 
       <el-table-column label="漏洞ID" width="160">

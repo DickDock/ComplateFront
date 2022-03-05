@@ -3,6 +3,7 @@
     <el-table
         :data="paginationData.records.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
         style="width: 100%"
+        empty-text="数据加载中"
         v-loading="loading"
         :row-class-name="delUserStyle">
       <el-table-column type="selection" width="55"/>
