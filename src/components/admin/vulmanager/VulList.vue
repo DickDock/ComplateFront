@@ -14,7 +14,7 @@
 
       <el-table-column label="漏洞名称" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="auto" trigger="hover">
+          <el-popover placement="top" width="auto" trigger="click">
             <template #default>
               <span>{{ scope.row.vulName }}</span>
             </template>
@@ -56,7 +56,7 @@
 
       <el-table-column label="漏洞详情" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="200" trigger="hover">
+          <el-popover placement="top" :width="300" trigger="click">
             <template #default>
               <span>{{ scope.row.vulDetail }}</span>
             </template>
@@ -69,7 +69,7 @@
 
       <el-table-column label="解决方案" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="300" trigger="hover">
+          <el-popover placement="top" :width="300" trigger="click">
             <template #default>
               <span>{{ scope.row.vulSolution }}</span>
             </template>
@@ -82,7 +82,7 @@
 
       <el-table-column label="补丁信息" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="300" trigger="hover">
+          <el-popover placement="top" :width="300" trigger="click">
             <template #default>
               <span>{{ scope.row.officialPatchInfo }}</span>
             </template>
@@ -95,7 +95,7 @@
 
       <el-table-column label="验证信息" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="300" trigger="hover">
+          <el-popover placement="top" width="300" trigger="click">
             <template #default>
               <span>{{ scope.row.verifyMessage }}</span>
             </template>
@@ -108,7 +108,7 @@
 
       <el-table-column label="漏洞附件信息" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="300" trigger="hover">
+          <el-popover placement="top" width="300" trigger="click">
             <template #default>
               <span>{{ scope.row.vulAttachment }}</span>
             </template>
