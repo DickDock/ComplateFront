@@ -130,6 +130,7 @@
     <el-row justify="center">
       <el-pagination
           v-model:currentPage="paginationData.current"
+          background
           :page-sizes="[15, 20, 50, 100, 200, 500]"
           :page-size=pageSize
           layout="total, sizes, prev, pager, next, jumper"
