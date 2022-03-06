@@ -14,7 +14,7 @@
 
       <el-table-column label="漏洞名称" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="auto" trigger="click">
+          <el-popover placement="top" :width="200" trigger="click">
             <template #default>
               <span>{{ scope.row.vulName }}</span>
             </template>
