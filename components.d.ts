@@ -9,6 +9,7 @@ declare module 'vue' {
     CrontabManager: typeof import('./src/views/admin/indexPages/CrontabManager.vue')['default']
     DailLog: typeof import('./src/components/common/DailLog.vue')['default']
     DashBoard: typeof import('./src/views/admin/indexPages/DashBoard.vue')['default']
+    DiskInf: typeof import('./src/components/admin/systemstatus/oshi/DiskInf.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']

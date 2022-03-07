@@ -13,6 +13,10 @@
     <div class="mt-2">
       <OsInf/>
     </div>
+
+    <div class="mt-2">
+      <DiskInf/>
+    </div>
   </div>
 </template>
 
