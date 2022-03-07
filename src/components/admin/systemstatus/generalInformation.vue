@@ -1,8 +1,5 @@
 <template>
-  <div class="mx-auto px-10">
-    <div class="mb-2">
-      <span class="">概览</span>
-    </div>
+  <div class="mx-auto px-10 mt-4">
     <div class="grid grid-cols-4 gap-4">
       <div class="">
         <el-card shadow="hover">

@@ -1,6 +1,5 @@
 <template>
-  <div class="pl-10"><span class="">状态</span></div>
-  <div class="grid grid-cols-4 gap-3 w-4/5 mx-auto mt-2">
+  <div class="grid grid-cols-4 gap-3 w-4/5 mx-auto mt-4">
     <div class="">
       <el-progress type="dashboard" :percentage="80" :width="250" :stroke-width="24">
         <template #default="{ percentage }">
