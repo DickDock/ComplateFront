@@ -18,7 +18,6 @@
         </el-tabs>
       </div>
     </div>
-
   </div>
 </template>
 

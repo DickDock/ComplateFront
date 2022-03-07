@@ -2,7 +2,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>操作系统资源信息</span>
+        <span>硬盘资源信息</span>
       </div>
     </template>
     <div class=" w-3/4">
