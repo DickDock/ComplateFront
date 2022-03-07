@@ -10,11 +10,20 @@
         <div class="p-2 bg-gray-200 border border-gray-500">操作系统类型</div>
         <div class="p-2 border border-gray-500 truncate">{{ osData.data.osName }}</div>
 
-        <div class="p-2 bg-gray-200 border border-gray-500">可用容量</div>
-        <div class="p-2 border border-gray-500 truncate">{{ osData.data.osName }}</div>
+        <div class="p-2 bg-gray-200 border border-gray-500">固件名称</div>
+        <div class="p-2 border border-gray-500 truncate">{{ osData.data.system.firmware.name }}</div>
 
-        <div class="p-2 bg-gray-200 border border-gray-500">内存使用率</div>
-        <div class="p-2 border border-gray-500 truncate">{{ osData.data.osName }}</div>
+        <div class="p-2 bg-gray-200 border border-gray-500">固件发布日期</div>
+        <div class="p-2 border border-gray-500 truncate">{{ osData.data.system.firmware.releaseDate }}</div>
+
+        <div class="p-2 bg-gray-200 border border-gray-500">生产厂商</div>
+        <div class="p-2 border border-gray-500 truncate">{{ osData.data.system.manufacturer }}</div>
+
+        <div class="p-2 bg-gray-200 border border-gray-500">硬件ID</div>
+        <div class="p-2 border border-gray-500 truncate">{{ osData.data.system.hardwareUUID }}</div>
+
+        <div class="p-2 bg-gray-200 border border-gray-500">机器型号</div>
+        <div class="p-2 border border-gray-500 truncate">{{ osData.data.system.model }}</div>
       </div>
     </div>
   </el-card>
