@@ -1,7 +1,5 @@
 <template>
-  <div class="mt-4 px-10">
-    <div class="">网卡及硬盘</div>
-
+  <div class="mt-6 px-10">
     <div class="grid grid-cols-2 gap-16">
       <div class="">
         <el-tabs v-model="activeName" class="disk-tabs" @tab-click="handleClick">
