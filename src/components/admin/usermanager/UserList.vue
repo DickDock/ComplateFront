@@ -1,7 +1,7 @@
 <template>
   <div>
-      <el-button type="danger" size="mini" @click="removeRows(this.paginationData.current, this.pageSize)">批量删除</el-button>
-    </div>
+    <el-button type="danger" size="small" @click="removeRows()">批量删除</el-button>
+  </div>
   <div class="">
     <el-table
         :data="paginationData.records.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
@@ -98,7 +98,6 @@
 import {defineComponent} from 'vue'
 // @ts-ignore
 import {userRequest} from '@/script/api/users/index';
-import {ElMessageBox} from 'element-plus'
 
 interface User {
   id: number
@@ -135,39 +134,37 @@ export default defineComponent({
   },
   methods: {
     // 批量删除
-    removeRows(current, pageSize) {
-        ElMessageBox.confirm('您正在执行批量删除用户操作，该操作执行后无法撤销，是否继续？', '提示', {
+    removeRows() {
+      ElMessageBox.confirm('您正在执行批量删除用户操作，该操作执行后无法撤销，是否继续？', '提示', {
         confirmButtonText: '继续执行',
         cancelButtonText: '取消操作',
-        type: 'warning'
+        type: 'warning',
       })
-      .then(() => {
-         var idList = []
-          // 遍历数组得到每个id值,设置到idList里面
-          for (var i = 0; i < this.multipleSelection.length; i++) {
-            var obj = this.multipleSelection[i]
-            console.log(obj)
-            var id = obj.id
-            idList.push(id)
-          }
-         userRequest.removeBatchById(idList)
-         .then((res) => {
-           if (res.status == true) {
-
-              // @ts-ignore
-              ElMessage.success(res.msg)
-            } else {
-              // @ts-ignore
-              ElMessage.error(res.msg)
+          .then(() => {
+            const idList = [];
+            // 遍历数组得到每个id值,设置到idList里面
+            for (let i = 0; i < this.multipleSelection.length; i++) {
+              const obj = this.multipleSelection[i];
+              console.log(obj)
+              const id = obj.id;
+              idList.push(id)
             }
-        })
-      })
+            userRequest.removeBatchById(idList)
+                .then((res) => {
+                  if (res.status == true) {
+                    // @ts-ignore
+                    ElMessage.success(res.msg)
+                  } else {
+                    // @ts-ignore
+                    ElMessage.error(res.msg)
+                  }
+                })
+          })
     },
     // 批量操作数据处理
     handleSelectionChange(selection) {
-      console.log(selection)
       this.multipleSelection = selection
-      console.log(this.multipleSelection)
+      console.log(this.multipleSelection.length)
     },
     handleEdit(index: any, row: any) {
       this.editDialogVisible = true
@@ -180,6 +177,7 @@ export default defineComponent({
               this.tableData.splice(index, 1)
               // @ts-ignore
               ElMessage.success('用户删除成功')
+              this.$router.go(0);
             } else {
               // @ts-ignore
               ElMessage.error('用户删除失败')
