@@ -1,19 +1,19 @@
 <template>
   <div class="">
     <span class="block text-4xl text-center">
-      系统使用率查看页面
+      系统使用率
     </span>
 
     <div class="">
-      <usage-status/>
+      <UsageStatus/>
     </div>
 
     <div class="">
-      <general-information/>
+      <GeneralInformation/>
     </div>
 
     <div class="">
-      <io-status/>
+      <IoStatus/>
     </div>
   </div>
 </template>
@@ -24,6 +24,7 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "SystemStatus",
+  components: {},
 })
 </script>
 
