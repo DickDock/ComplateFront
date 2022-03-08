@@ -1,11 +1,15 @@
 <template>
+  <div>
+      <el-button type="danger" size="mini" @click="removeRows(this.paginationData.current, this.pageSize)">批量删除</el-button>
+    </div>
   <div class="">
     <el-table
         :data="paginationData.records.filter((data) =>!search || data['userName'].toLowerCase().includes(search.toLowerCase()))"
         style="width: 100%"
         empty-text="数据加载中"
         v-loading="loading"
-        :row-class-name="delUserStyle">
+        :row-class-name="delUserStyle"
+        @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55"/>
       <el-table-column prop="userName" label="用户名"/>
       <el-table-column prop="createTime" label="注册日期" sortable/>
@@ -94,6 +98,7 @@
 import {defineComponent} from 'vue'
 // @ts-ignore
 import {userRequest} from '@/script/api/users/index';
+import {ElMessageBox} from 'element-plus'
 
 interface User {
   id: number
@@ -123,10 +128,47 @@ export default defineComponent({
         records: [],
         current: 1,
         total: 0,
-      }
+      },
+      // 批量操作记录
+      multipleSelection: []
     }
   },
   methods: {
+    // 批量删除
+    removeRows(current, pageSize) {
+        ElMessageBox.confirm('您正在执行批量删除用户操作，该操作执行后无法撤销，是否继续？', '提示', {
+        confirmButtonText: '继续执行',
+        cancelButtonText: '取消操作',
+        type: 'warning'
+      })
+      .then(() => {
+         var idList = []
+          // 遍历数组得到每个id值,设置到idList里面
+          for (var i = 0; i < this.multipleSelection.length; i++) {
+            var obj = this.multipleSelection[i]
+            console.log(obj)
+            var id = obj.id
+            idList.push(id)
+          }
+         userRequest.removeBatchById(idList)
+         .then((res) => {
+           if (res.status == true) {
+
+              // @ts-ignore
+              ElMessage.success(res.msg)
+            } else {
+              // @ts-ignore
+              ElMessage.error(res.msg)
+            }
+        })
+      })
+    },
+    // 批量操作数据处理
+    handleSelectionChange(selection) {
+      console.log(selection)
+      this.multipleSelection = selection
+      console.log(this.multipleSelection)
+    },
     handleEdit(index: any, row: any) {
       this.editDialogVisible = true
       this.editTableData = row
