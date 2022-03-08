@@ -25,9 +25,27 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+// @ts-ignore
+import {GetOshiData} from "@/script/api/oshi";
 
 export default defineComponent({
   name: "MemoryInf",
+  mounted() {
+    this.getData()
+    if (this.timer) {
+      clearInterval(this.timer);
+    } else {
+      this.timer = setInterval(() => {
+        setTimeout(() => {
+          this.getData()
+        }, 0)
+      }, 5000)
+    }
+  },
+  beforeUnmount () {
+    clearInterval(this.timer)
+    this.timer = null
+  },
   data() {
     return {
       memoryData: {
@@ -40,6 +58,16 @@ export default defineComponent({
           "available": "3.62G"
         }
       }
+    }
+  },
+  methods: {
+    getData() {
+      GetOshiData.getMemoryData()
+          .then((res) => {
+            if (res.code == 200) {
+              this.memoryData = res
+            }
+          })
     }
   }
 })

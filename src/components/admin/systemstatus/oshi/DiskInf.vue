@@ -30,9 +30,27 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+// @ts-ignore
+import {GetOshiData} from "@/script/api/oshi";
 
 export default defineComponent({
   name: "DiskInf",
+  mounted() {
+    this.getData()
+    if (this.timer) {
+      clearInterval(this.timer);
+    } else {
+      this.timer = setInterval(() => {
+        setTimeout(() => {
+          this.getData()
+        }, 0)
+      }, 5000)
+    }
+  },
+  beforeUnmount() {
+    clearInterval(this.timer)
+    this.timer = null
+  },
   data() {
     return {
       diskData: {
@@ -66,6 +84,16 @@ export default defineComponent({
           }
         ]
       }
+    }
+  },
+  methods: {
+    getData() {
+      GetOshiData.getDiskData()
+          .then((res) => {
+            if (res.code == 200) {
+              this.diskData = res
+            }
+          })
     }
   }
 })

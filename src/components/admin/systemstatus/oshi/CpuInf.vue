@@ -10,9 +10,6 @@
         <div class="bg-gray-200 p-2 border border-gray-500">属性</div>
         <div class="bg-gray-200 p-2 border border-gray-500">内容</div>
 
-        <div class="p-2 border border-gray-500">CPU型号</div>
-        <div class="p-2 border border-gray-500 truncate">{{ cpuData.data.cpu.cpuModel }}</div>
-
         <div class="p-2 border border-gray-500">CPU核心数</div>
         <div class="p-2 border border-gray-500 truncate">{{ cpuData.data.cpu.cpuNum }}</div>
 
@@ -21,9 +18,6 @@
 
         <div class="p-2 border border-gray-500">用户使用率</div>
         <div class="p-2 border border-gray-500 truncate">{{ cpuData.data.cpu.used }} %</div>
-
-        <div class="p-2 border border-gray-500">CPU当前等待率</div>
-        <div class="p-2 border border-gray-500 truncate">{{ cpuData.data.cpu.wait }} %</div>
       </div>
     </div>
   </el-card>
@@ -31,9 +25,27 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+// @ts-ignore
+import {GetOshiData} from "@/script/api/oshi";
 
 export default defineComponent({
   name: "CpuInf",
+  mounted() {
+    this.getData()
+    if (this.timer) {
+      clearInterval(this.timer);
+    } else {
+      this.timer = setInterval(() => {
+        setTimeout(() => {
+          this.getData()
+        }, 0)
+      }, 5000)
+    }
+  },
+  beforeUnmount () {
+    clearInterval(this.timer)
+    this.timer = null
+  },
   data() {
     return {
       cpuData: {
@@ -64,7 +76,17 @@ export default defineComponent({
         }
       }
     }
-  }
+  },
+  methods: {
+    getData() {
+      GetOshiData.getCpuData()
+          .then((res) => {
+            if (res.code == 200) {
+              this.cpuData = res
+            }
+          })
+    },
+  },
 })
 </script>
 
