@@ -2,6 +2,14 @@
 import http from "@/script/utils/http";
 
 export class userRequest {
+    static removeBatchById(idList : any) {
+        return http.request({
+            url: 'users/batchRemove',
+            method: 'DELETE',
+            data: idList
+        })
+    }
+
     static getUserList() {
         return http.request({
             url: 'users',
