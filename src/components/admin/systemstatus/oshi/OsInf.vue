@@ -31,9 +31,14 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+// @ts-ignore
+import {GetOshiData} from "@/script/api/oshi";
 
 export default defineComponent({
   name: "OsInf",
+  mounted() {
+    this.getData()
+  },
   data() {
     return {
       osData: {
@@ -64,7 +69,17 @@ export default defineComponent({
         }
       }
     }
-  }
+  },
+  methods: {
+    getData() {
+      GetOshiData.getOsData()
+          .then((res) => {
+            if (res.code == 200) {
+              this.osData = res
+            }
+          })
+    },
+  },
 })
 </script>
 

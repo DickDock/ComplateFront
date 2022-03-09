@@ -117,7 +117,6 @@ export default defineComponent({
   },
   data() {
     return {
-      tableData: [],
       loading: true,
       editTableData: [],
       search: '',
@@ -145,7 +144,6 @@ export default defineComponent({
             // 遍历数组得到每个id值,设置到idList里面
             for (let i = 0; i < this.multipleSelection.length; i++) {
               const obj = this.multipleSelection[i];
-              console.log(obj)
               const id = obj.id;
               idList.push(id)
             }
