@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button type="danger" size="small" @click="removeRows()">批量删除</el-button>
+    <el-button type="danger" size="small" @click="removeRows()" class="bg-red-400">批量删除</el-button>
   </div>
   <div class="">
     <el-table
