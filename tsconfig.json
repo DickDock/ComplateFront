@@ -20,8 +20,11 @@
       "/@/*": [
         "./src/*"
       ]
-    }
+    },
     //===========编译器ide提示。。。。
+    "types": [
+      "vite-plugin-svg-icons/client"
+    ]
   },
   "include": [
     "src/**/*.ts",

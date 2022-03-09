@@ -3,6 +3,7 @@ import App from './App.vue'
 import '@/assets/css/app.css'
 import 'element-plus/dist/index.css'
 import router from './router'
+import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 app.config.globalProperties.$showNav = true

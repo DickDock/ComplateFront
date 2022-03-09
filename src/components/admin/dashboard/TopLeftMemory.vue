@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full">
+  <div class="">
     <div class="" id="Chart"></div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default defineComponent({
           bottom: '5%',
           orient: 'horizontal',
           textStyle: {
-            color: '#FFF'
+            color: '#913fd7'
           },
         },
         grid: {
@@ -61,7 +61,7 @@ export default defineComponent({
             avoidLabelOverlap: false,
             itemStyle: {
               borderRadius: 10,
-              borderColor: '#fff',
+              borderColor: 'rgba(133,30,245,0.51)',
               borderWidth: 2
             },
             label: {
