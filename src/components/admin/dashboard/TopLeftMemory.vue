@@ -19,7 +19,7 @@ import {LabelLayout} from 'echarts/features';
 import {CanvasRenderer} from 'echarts/renderers';
 
 export default defineComponent({
-  name: "topLeftMemory",
+  name: "TopLeftMemory",
   mounted() {
     this.buildChart()
   },
@@ -98,6 +98,6 @@ export default defineComponent({
 <style scoped>
 #Chart {
   width: 100%;
-  height: 450px;
+  height: 400px;
 }
 </style>
