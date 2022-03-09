@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.1",
+    "@jiaminghi/data-view": "^2.10.0",
     "axios": "^0.26.0",
     "echarts": "^5.3.1",
     "element-plus": "^2.0.5",

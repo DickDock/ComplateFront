@@ -9,7 +9,7 @@
           <span class="title">主机资源概览</span>
         </div>
         <div class="grid grid-cols-1 mt-4">
-          <TopLeftMemory></TopLeftMemory>
+          <TopLeftMemory/>
         </div>
       </div>
 
@@ -20,6 +20,9 @@
         <div class="grid grid-cols-1 mt-4">
           <LineChart/>
         </div>
+      </div>
+
+      <div class="">
       </div>
     </div>
   </div>
@@ -38,20 +41,16 @@ export default defineComponent({
 
 <style scoped>
 .mainBox {
-  background-image: url('@/assets/images/dashboard/mainBg.png');
-}
-
-.titleDiv {
-  @apply bg-cover;
+  /*background-image: url('@/assets/images/dashboard/mainBg.png');*/
 }
 
 .titleDiv span {
-  @apply text-center text-4xl block text-white mt-2;
+  @apply text-center text-4xl block mt-2;
 }
 
 .topLeft {
-  @apply row-span-2 p-2 bg-cover;
-  background-image: url("@/assets/images/dashboard/topLeft.png");
+  @apply row-span-2 p-2;
+  /*background-image: url("@/assets/images/dashboard/topLeft.png");*/
 }
 
 .topLeft span.title {
