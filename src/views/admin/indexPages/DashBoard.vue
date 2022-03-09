@@ -1,7 +1,7 @@
 <template>
   <div class="mainBox h-screen bg-cover">
     <div class="titleDiv">
-      <span class="">主机安全态势预警平台</span>
+      <span class="">大数据风险分析平台</span>
     </div>
     <div class="grid grid-cols-3 grid-rows-3 gap-4 mt-6">
       <div class="topLeft">

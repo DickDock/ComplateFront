@@ -95,7 +95,7 @@
 
       <el-table-column label="验证信息" width="200">
         <template #default="scope">
-          <el-popover placement="top" width="300" trigger="click">
+          <el-popover placement="top" :width="200" trigger="click">
             <template #default>
               <span>{{ scope.row.verifyMessage }}</span>
             </template>
@@ -121,7 +121,7 @@
 
       <el-table-column label="漏洞操作">
         <template #default="scope">
-          <el-button size="small" type="primary" @click="handleEdit(scope.$index, scope.row)">详情</el-button>
+          <el-button size="small" type="primary" plain @click="handleEdit(scope.$index, scope.row)">详情</el-button>
         </template>
       </el-table-column>
     </el-table>

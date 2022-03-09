@@ -22,4 +22,11 @@ export class GetOshiData {
             method: 'GET',
         })
     }
+
+    static getOsData() {
+        return http.request({
+            url: 'oshi/os/',
+            method: 'GET',
+        })
+    }
 }
