@@ -6,7 +6,7 @@ import ElementPlus from "unplugin-element-plus/vite";
 import Components from "unplugin-vue-components/vite";
 // @ts-ignore
 import path from "path";
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import {createSvgIconsPlugin} from 'vite-plugin-svg-icons'
 
 // @ts-ignore
 export default defineConfig(({command, mode}) => {
@@ -89,9 +89,9 @@ export default defineConfig(({command, mode}) => {
         resolve: {
             alias: {
                 // @ts-ignore
-                '@': path.resolve(__dirname, './src'),
-                // @ts-ignore
-                '~script': path.resolve(__dirname, './src/script'),
+                "@": path.resolve(__dirname, 'src'),
+                script: path.resolve(__dirname, 'src/script'),
+                assets: path.resolve(__dirname, 'src/assets'),
             }
         },
         css: {},

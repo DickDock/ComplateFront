@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.1",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "echarts": "^5.3.1",
     "element-plus": "^2.0.5",
     "fs": "^0.0.1-security",
@@ -23,7 +23,7 @@
     "postcss": "^8.4.8",
     "sass": "^1.45.2",
     "svg-sprite-loader": "^6.0.11",
-    "tailwindcss": "^3.0.19",
+    "tailwindcss": "^3.0.23",
     "typescript": "^4.4.4",
     "unplugin-auto-import": "^0.6.1",
     "unplugin-element-plus": "^0.3.1",
