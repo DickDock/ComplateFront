@@ -47,7 +47,7 @@ export default defineComponent({
           bottom: '5%',
           orient: 'horizontal',
           textStyle: {
-            color: '#913fd7'
+            color: '#72cb9d'
           },
         },
         grid: {
@@ -61,7 +61,7 @@ export default defineComponent({
             avoidLabelOverlap: false,
             itemStyle: {
               borderRadius: 10,
-              borderColor: 'rgba(133,30,245,0.51)',
+              borderColor: 'rgba(133,30,245,0)',
               borderWidth: 2
             },
             label: {
