@@ -19,9 +19,9 @@
 
       <div class=""></div>
 
-      <div class="topLeft">
-        <div class="title">
-          <span class="">漏洞等级趋势</span>
+      <div class="ring-1 ring-gray-200 ring-offset-2 ring-offset-purple-100 shadow-inner">
+        <div class="">
+          <span class="title">漏洞等级趋势</span>
         </div>
         <div class="grid grid-cols-1 mt-4">
           <LineChart/>
