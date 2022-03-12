@@ -4,9 +4,9 @@
       <span class="text-center text-4xl block mt-2">大数据风险分析平台</span>
     </div>
 
-    <div class="grid grid-cols-4 gap-0 mt-6">
+    <div class="grid grid-cols-3 gap-0 mt-6">
 
-      <div class="ring-1 ring-gray-200 ring-offset-2 ring-offset-purple-100 shadow-inner">
+      <div class="shadow-inner">
         <div class="">
           <span class="title inline-block align-middle">主机资源概览</span>
         </div>
@@ -17,9 +17,7 @@
 
       <div class=""></div>
 
-      <div class=""></div>
-
-      <div class="ring-1 ring-gray-200 ring-offset-2 ring-offset-purple-100 shadow-inner">
+      <div class="shadow-inner">
         <div class="">
           <span class="title">漏洞等级趋势</span>
         </div>
@@ -41,8 +39,7 @@ export default defineComponent({
   setup() {
   },
   data() {
-    return {
-    }
+    return {}
   }
 })
 </script>
