@@ -16,7 +16,7 @@
         <div class="p-2 border border-gray-500">可用容量</div>
         <div class="p-2 border border-gray-500 truncate">{{ memoryData.data.available }}</div>
 
-        <div class="p-2 border border-gray-500">内存使用率</div>
+        <div class="p-2 border border-gray-500">可用内存</div>
         <div class="p-2 border border-gray-500 truncate">{{ memoryData.data.memory.slice(1,) }} %</div>
       </div>
     </div>
