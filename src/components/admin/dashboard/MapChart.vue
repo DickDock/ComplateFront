@@ -4,10 +4,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue'
-
-export default defineComponent({
+<script>
+export default {
   name: "MapChart",
   mounted() {
     this.buildChart()
@@ -17,12 +15,12 @@ export default defineComponent({
 
     }
   }
-})
+}
 </script>
 
 <style scoped>
 #ChartMap {
   width: 100%;
-  height: 400px;
+  height: 600px;
 }
 </style>
