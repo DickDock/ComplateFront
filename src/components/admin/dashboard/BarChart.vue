@@ -44,9 +44,9 @@ export default defineComponent({
           | RadarSeriesOption
           >;
 
-      var chartDom = document.getElementById('ChartBar')!;
-      var myChart = echarts.init(chartDom);
-      var option: EChartsOption;
+      const chartDom = document.getElementById('ChartBar')!;
+      const myChart = echarts.init(chartDom);
+      let option: EChartsOption;
 
       option = {
         tooltip: {
@@ -56,8 +56,8 @@ export default defineComponent({
           type: 'scroll',
           bottom: 10,
           data: (function () {
-            var list = [];
-            for (var i = 1; i <= 28; i++) {
+            const list = [];
+            for (let i = 1; i <= 28; i++) {
               list.push(i + 2000 + '');
             }
             return list;

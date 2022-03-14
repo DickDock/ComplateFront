@@ -17,7 +17,6 @@
 
       <div class="row-span-2 col-span-2 h-full w-full">
         <div class="row-span-2 col-span-2">
-          <MapChart/>
         </div>
       </div>
 
