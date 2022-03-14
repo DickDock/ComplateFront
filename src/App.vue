@@ -1,9 +1,9 @@
 <template>
   <el-config-provider :locale="locale">
-    <el-container style="">
+    <el-container>
 
       <el-header class="py-2" v-show="$route.meta.showNav">
-        <el-row :gutter="18" justify="end">
+        <el-row :gutter="18" justify="end" class="mt-2">
           <el-col :span="6" class="">
             <el-row justify="end">
               <el-button circle>
