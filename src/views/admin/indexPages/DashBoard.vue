@@ -4,7 +4,7 @@
       <span class="text-center text-4xl block mt-2">大数据风险分析平台</span>
     </div>
 
-    <div class="grid grid-cols-3 gap-0 mt-6">
+    <div class="grid grid-cols-4 gap-0 mt-6">
 
       <div class="shadow-inner">
         <div class="">
@@ -15,7 +15,11 @@
         </div>
       </div>
 
-      <div class=""></div>
+      <div class="row-span-2 col-span-2 h-full w-full">
+        <div class="row-span-2 col-span-2">
+          <MapChart/>
+        </div>
+      </div>
 
       <div class="shadow-inner">
         <div class="">
@@ -23,6 +27,24 @@
         </div>
         <div class="grid grid-cols-1 mt-4">
           <LineChart/>
+        </div>
+      </div>
+
+      <div class="shadow-inner">
+        <div class="">
+          <span class="title">浏览器占比</span>
+        </div>
+        <div class="grid grid-cols-1 mt-4">
+          <BarChart/>
+        </div>
+      </div>
+
+      <div class="shadow-inner">
+        <div class="">
+          <span class="title">实时流量趋势</span>
+        </div>
+        <div class="grid grid-cols-1 mt-4">
+          <TrafficChart/>
         </div>
       </div>
     </div>
